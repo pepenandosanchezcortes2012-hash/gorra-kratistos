@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Ficha técnica de la gorra roja Kratistos: Alejandro, el busto griego, Musashi y la corona.">
+<meta name="description" content="Ficha técnica de la gorra Kratistos en rojo cardenal y total black.">
 <title>Gorra Kratistos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
   --line: #DDD6D3;
   --grid: #EDE7E5;
   --accent: #9B1B26;
-  /* colores físicos de la gorra: iguales en tema claro y oscuro */
+  /* colores físicos de la gorra roja: iguales en tema claro y oscuro */
   --twill: #9B1B26;
   --twill-dark: #7A141E;
   --stone: #D6CBB0;
@@ -28,6 +28,11 @@
   --brim-grey-dark: #74746F;
   --brass: #9A7B4F;
   --inside: #5A0F17;
+  /* colores físicos de la total black */
+  --black: #111111;
+  --white-thread: #F5F5F2;
+  --charcoal: #3A3A3A;
+  --matte-black: #2B2B2B;
   --f-display: "Marcellus", "Trajan Pro", Georgia, serif;
   --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
@@ -48,6 +53,7 @@
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; }
 img { max-width: 100%; }
+[hidden] { display: none !important; }
 body {
   background: var(--bg);
   color: var(--ink);
@@ -71,17 +77,19 @@ p { margin: 0; }
 section { display: grid; gap: 1.8rem; }
 .jp { font-family: var(--f-kanji); }
 
-/* Portada */
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 2.5rem; align-items: center; }
+/* Portada: los dos colores lado a lado */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 2.5rem; align-items: center; }
 .hero-text { display: grid; gap: 1.2rem; min-width: 0; }
 .hero h1 { font-size: clamp(3rem, 8vw, 5.6rem); letter-spacing: .02em; }
 .hero h1 .jp { display: block; font-size: .36em; letter-spacing: .3em; color: var(--accent); margin-top: .6rem; }
 .lead { font-size: 1.12rem; max-width: 46ch; }
 .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; font-family: var(--f-mono); font-size: .84rem; color: var(--muted); }
 .facts li::before { content: "— "; color: var(--accent); }
-.hero figure { margin: 0; display: grid; gap: .5rem; min-width: 0; }
-.hero img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: #fff; }
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; min-width: 0; }
+.duo figure { margin: 0; display: grid; gap: .45rem; min-width: 0; }
+.duo img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; border: 1px solid var(--line); background: #fff; }
 figcaption { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); }
+.dot { display: inline-block; width: .7em; height: .7em; border-radius: 50%; vertical-align: -.05em; margin-right: .4em; border: 1px solid var(--line); }
 
 /* Concepto */
 .figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -96,7 +104,14 @@ figcaption { font-family: var(--f-mono); font-size: .76rem; color: var(--muted);
 .binding { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .3rem 1.4rem; align-items: baseline; padding-top: .4rem; }
 .binding p { color: var(--muted); font-size: .92rem; }
 
-/* Mockups */
+/* Mockups con selector de color */
+.switch { display: inline-flex; gap: 0; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface); justify-self: start; }
+.switch button {
+  font: 500 .88rem var(--f-body); color: var(--ink); background: transparent; border: 0; border-radius: 999px;
+  padding: .5rem 1.1rem; cursor: pointer; display: inline-flex; align-items: center; gap: .45rem;
+}
+.switch button[aria-selected="true"] { background: var(--ink); color: var(--surface); }
+.switch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .mocks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .mock { margin: 0; display: grid; gap: .45rem; align-content: start; min-width: 0; }
 .mock img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; border: 1px solid var(--line); background: #fff; }
@@ -114,9 +129,10 @@ figcaption { font-family: var(--f-mono); font-size: .76rem; color: var(--muted);
 .spec dd { margin: 0; }
 .spec .jp { font-size: 1.08em; letter-spacing: .06em; }
 .taping {
-  background: var(--twill); color: var(--stone); font-family: var(--f-kanji); font-size: .9rem;
-  letter-spacing: .18em; white-space: nowrap; overflow: hidden; padding: .5rem 0; border-radius: 2px;
+  font-family: var(--f-kanji); font-size: .9rem; letter-spacing: .18em; white-space: nowrap; overflow: hidden; padding: .5rem 0; border-radius: 2px;
 }
+.taping.red { background: var(--twill); color: var(--stone); }
+.taping.black { background: var(--black); color: var(--white-thread); }
 
 /* SVG: clases de arte (colores físicos) y de anotación (siguen el tema) */
 .tw { fill: var(--twill); }
@@ -136,13 +152,19 @@ figcaption { font-family: var(--f-mono); font-size: .76rem; color: var(--muted);
 .gridline { stroke: var(--grid); stroke-width: .3; fill: none; }
 .refframe { fill: none; stroke: var(--stone); stroke-width: .4; stroke-dasharray: 1.6 1.2; opacity: .7; }
 .t-kanji { font-family: var(--f-kanji); }
+/* la misma pieza en total black: se redefinen los colores físicos dentro del grupo */
+.cw-black { --twill: var(--black); --twill-dark: #000000; --stone: var(--white-thread); --wine: var(--charcoal); }
 
 /* Construcción y paleta */
 .table-wrap { overflow-x: auto; border-top: 1px solid var(--ink); }
 table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .94rem; }
 th, td { text-align: left; padding: .7rem .9rem .7rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { font-family: var(--f-mono); font-weight: 500; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); width: 26%; }
+.palettes { display: grid; gap: 2rem; }
+.palette { display: grid; gap: .9rem; }
+.palette h3 { font-size: 1.15rem; }
 .swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; }
+.swatches.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .sw { display: grid; gap: .45rem; min-width: 0; }
 .chip { aspect-ratio: 4 / 3; border: 1px solid var(--line); border-radius: 2px; }
 .sw b { font-weight: 600; font-size: .95rem; }
@@ -152,12 +174,12 @@ th { font-family: var(--f-mono); font-weight: 500; font-size: .74rem; letter-spa
 /* Prompt y etiqueta */
 .prompt-box { display: grid; gap: .8rem; }
 .prompt-bar { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: space-between; }
-button {
+.copy {
   font: 500 .88rem var(--f-body); color: var(--surface); background: var(--ink); border: 0; border-radius: 3px;
   padding: .6rem 1.1rem; cursor: pointer;
 }
-button:hover { background: var(--accent); }
-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.copy:hover { background: var(--accent); }
+.copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 pre {
   margin: 0; background: var(--surface); border: 1px solid var(--line); padding: 1.1rem 1.2rem; overflow-x: auto;
   font-family: var(--f-mono); font-size: .8rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word; max-height: 26rem;
@@ -184,10 +206,11 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
   .fig:nth-child(n+3) { border-top: 1px solid var(--line); }
   .mocks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .swatches.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   .hero, .zone, .hang { grid-template-columns: minmax(0, 1fr); }
-  .hero figure { order: -1; }
+  .hero .duo { order: -1; }
   .wrap { gap: 3.5rem; padding-block: 1.5rem 3rem; }
 }
 @media (max-width: 520px) {
@@ -195,7 +218,7 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
   .fig, .fig:nth-child(3) { border-left: 0; padding-left: 0; padding-right: 0; }
   .fig + .fig { border-top: 1px solid var(--line); }
   .mocks { grid-template-columns: minmax(0, 1fr); }
-  .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .swatches, .swatches.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .binding { grid-template-columns: minmax(0, 1fr); }
   .spec dl { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
   .spec dd { margin-bottom: .45rem; }
@@ -203,7 +226,7 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
 </style>
 </head>
 <body>
-<!-- Símbolos compartidos: corona real y cuadrícula de 10 mm -->
+<!-- Símbolos compartidos: corona real, insignia y cuadrícula de 10 mm -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <pattern id="mm" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -234,6 +257,20 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
         <ellipse cx="26" cy="15" rx="3.2" ry="2.6"/>
       </g>
     </symbol>
+    <symbol id="badge" viewBox="-50 -50 100 100">
+      <path d="M-34,-40 H34 V2 C34,24 17,38 0,46 C-17,38 -34,24 -34,2 Z" style="fill:var(--twill);stroke:var(--stone);stroke-width:4.5;stroke-linejoin:round"/>
+      <path d="M-29,-35 H29 V2 C29,21 14,33 0,40 C-14,33 -29,21 -29,2 Z" style="fill:none;stroke:var(--stone);stroke-width:.7;stroke-dasharray:1.6 1.2"/>
+      <g id="badgeLaurel"></g>
+      <g style="stroke:var(--stone);stroke-linecap:round;fill:none">
+        <path d="M-19,24 L19,-14" style="stroke-width:2.2"/>
+        <path d="M19,24 L-19,-14" style="stroke-width:2.2"/>
+      </g>
+      <g style="fill:var(--twill);stroke:var(--stone);stroke-width:1.1">
+        <circle cx="-12.5" cy="17.5" r="2.8"/><circle cx="12.5" cy="17.5" r="2.8"/>
+      </g>
+      <use href="#crown" x="-12" y="-39" width="24" height="24"/>
+      <text y="13" text-anchor="middle" font-size="17" class="t-kanji" style="fill:var(--stone);stroke:var(--twill);stroke-width:3;paint-order:stroke">最強</text>
+    </symbol>
   </defs>
 </svg>
 
@@ -241,21 +278,27 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
 
   <header class="hero">
     <div class="hero-text">
-      <span class="eyebrow">Gorra A-frame · Ficha técnica v6 · 19 oct 2026</span>
+      <span class="eyebrow">Gorra A-frame · Ficha técnica v7 · 19 oct 2026</span>
       <h1>Kratistos<span class="jp">最強の者へ</span></h1>
-      <p class="lead">Una gorra de uso diario con tres figuras que no aceptaron lo imposible. Alejandro va al frente y en el costado izquierdo, Musashi en el derecho y la corona de Napoleón en la espalda. Toda la letra va en japonés, en hilo piedra sobre sarga roja, con detalles tono sobre tono en vino.</p>
+      <p class="lead">Una gorra de uso diario con tres figuras que no aceptaron lo imposible. Alejandro va al frente y en el costado izquierdo, Musashi en el derecho y la corona de Napoleón en la espalda. Toda la letra va en japonés. Viene en dos colores con el mismo diseño: rojo cardenal con hilo piedra, y total black con hilo blanco.</p>
       <ul class="facts">
         <li>Estructura A-frame de copa alta, frente rígido sin costura</li>
-        <li>Sarga de algodón 100 %</li>
-        <li>8 zonas decoradas, ninguna pisa una costura</li>
+        <li>Dos colores: rojo cardenal y total black</li>
+        <li>Insignia bordada tipo parche al frente</li>
         <li>Toda la letra en japonés: kanji y katakana con trazo de pincel</li>
         <li>Talla ajustable de 56 a 60 cm</li>
       </ul>
     </div>
-    <figure>
-      <img src="img/frente.jpg" alt="Gorra roja A-frame con 最強の者へ en arco, アレクサンドロス, マケドニア y una corona al frente; en el costado, un busto griego de Alejandro" width="673" height="674">
-      <figcaption>Frente y costado izquierdo · mockup generado con Google Flow</figcaption>
-    </figure>
+    <div class="duo">
+      <figure>
+        <img src="img/r-frente.jpg" alt="Gorra roja: 最強の者へ en arco, アレクサンドロス, マケドニア y la insignia al frente; busto griego en el costado" width="673" height="674">
+        <figcaption><span class="dot" style="background:var(--twill)"></span>Rojo cardenal</figcaption>
+      </figure>
+      <figure>
+        <img src="img/n-frente.jpg" alt="Gorra total black: la misma letra japonesa, la insignia y el busto bordados en blanco" width="730" height="730">
+        <figcaption><span class="dot" style="background:var(--black)"></span>Total black</figcaption>
+      </figure>
+    </div>
   </header>
 
   <section id="concepto" aria-labelledby="h-concepto">
@@ -271,7 +314,7 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
         <p class="phrase" lang="ja">最強の者へ</p>
         <p class="reading">saikyō no mono e</p>
         <p class="tr">«Al más fuerte»</p>
-        <p class="note">Según Arriano, fue su respuesta en el lecho de muerte cuando le preguntaron a quién dejaba el imperio. Debajo dice アレクサンドロス (Alexandros) y マケドニア (Macedonia).</p>
+        <p class="note">Según Arriano, fue su respuesta en el lecho de muerte cuando le preguntaron a quién dejaba el imperio. Debajo dice アレクサンドロス (Alexandros) y マケドニア (Macedonia). Debajo va la insignia con 最強, «el más fuerte».</p>
       </article>
       <article class="fig">
         <span class="tag">Costado izquierdo</span>
@@ -308,33 +351,27 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
     <div class="section-head">
       <span class="eyebrow">Mockups</span>
       <h2 id="h-mockups">Cómo se ve armada</h2>
-      <p>Las seis vistas son de una misma sesión de Google Flow (Nano Banana 2.1), así que es la misma gorra en cada foto. Revisé cada carácter japonés en todas.</p>
+      <p>Seis vistas por color, generadas con Google Flow (Nano Banana 2.1). Revisé cada carácter japonés en todas.</p>
     </div>
-    <div class="mocks">
-      <figure class="mock">
-        <img src="img/frente.jpg" alt="Vista de tres cuartos: frente con 最強の者へ, アレクサンドロス, マケドニア y una corona; costado con el busto griego" width="673" height="674">
-        <figcaption>Frente · Alejandro</figcaption>
-      </figure>
-      <figure class="mock">
-        <img src="img/busto.jpg" alt="Costado izquierdo de perfil: busto griego de Alejandro con dos laureles y el sello 大王" width="673" height="674">
-        <figcaption>Costado izquierdo · el busto</figcaption>
-      </figure>
-      <figure class="mock">
-        <img src="img/musashi.jpg" alt="Costado derecho de perfil: ensō en vino, dos katanas cruzadas, 独行道 en vertical y el sello 武蔵" width="673" height="674">
-        <figcaption>Costado derecho · Musashi</figcaption>
-      </figure>
-      <figure class="mock">
-        <img src="img/espalda.jpg" alt="Espalda: corona real grande con perlas entre dos laureles, 我が辞書に不可能はない en arco y la hebilla de latón con una corona" width="657" height="596">
-        <figcaption>Espalda · la corona</figcaption>
-      </figure>
-      <figure class="mock">
-        <img src="img/bajo-visera.jpg" alt="Gorra boca arriba: bajo visera gris con corona de laurel y 為せば成る; cinta interior con アレクサンドロス・武蔵・ナポレオン" width="673" height="674">
-        <figcaption>Bajo visera y cinta interior</figcaption>
-      </figure>
-      <figure class="mock">
-        <img src="img/lifestyle.jpg" alt="Un joven con la gorra puesta en una calle de piedra, con luz de tarde" width="497" height="594" style="object-position:50% 25%">
-        <figcaption>Puesta · uso diario</figcaption>
-      </figure>
+    <div class="switch" role="tablist" aria-label="Color de la gorra">
+      <button type="button" role="tab" id="tab-roja" aria-selected="true" aria-controls="panel-roja" data-cw="roja"><span class="dot" style="background:var(--twill)"></span>Rojo cardenal</button>
+      <button type="button" role="tab" id="tab-black" aria-selected="false" aria-controls="panel-black" data-cw="black"><span class="dot" style="background:var(--black)"></span>Total black</button>
+    </div>
+    <div class="mocks" id="panel-roja" role="tabpanel" aria-labelledby="tab-roja">
+      <figure class="mock"><img src="img/r-frente.jpg" alt="Roja, tres cuartos de frente: letra japonesa, insignia y busto" width="673" height="674" loading="lazy"><figcaption>Frente · Alejandro</figcaption></figure>
+      <figure class="mock"><img src="img/r-busto.jpg" alt="Roja, costado izquierdo: busto griego con laureles y sello 大王" width="673" height="674" loading="lazy"><figcaption>Costado izquierdo · el busto</figcaption></figure>
+      <figure class="mock"><img src="img/r-musashi.jpg" alt="Roja, costado derecho: ensō, katanas, 独行道 y sello 武蔵" width="673" height="674" loading="lazy"><figcaption>Costado derecho · Musashi</figcaption></figure>
+      <figure class="mock"><img src="img/r-espalda.jpg" alt="Roja, espalda: corona real con perlas entre laureles y 我が辞書に不可能はない" width="657" height="596" loading="lazy"><figcaption>Espalda · la corona</figcaption></figure>
+      <figure class="mock"><img src="img/r-bajo-visera.jpg" alt="Roja boca arriba: bajo visera gris con 為せば成る y cinta en katakana" width="673" height="674" loading="lazy"><figcaption>Bajo visera y cinta</figcaption></figure>
+      <figure class="mock"><img src="img/r-lifestyle.jpg" alt="Un joven con la gorra roja en una calle de piedra" width="545" height="730" loading="lazy" style="object-position:50% 25%"><figcaption>Puesta · uso diario</figcaption></figure>
+    </div>
+    <div class="mocks" id="panel-black" role="tabpanel" aria-labelledby="tab-black" hidden>
+      <figure class="mock"><img src="img/n-frente.jpg" alt="Total black, tres cuartos de frente: letra japonesa, insignia y busto en blanco" width="730" height="730" loading="lazy"><figcaption>Frente · Alejandro</figcaption></figure>
+      <figure class="mock"><img src="img/n-busto.jpg" alt="Total black, costado izquierdo: busto griego en blanco con sello 大王" width="673" height="674" loading="lazy"><figcaption>Costado izquierdo · el busto</figcaption></figure>
+      <figure class="mock"><img src="img/n-musashi.jpg" alt="Total black, costado derecho: ensō gris carbón, katanas y 独行道 en blanco" width="673" height="674" loading="lazy"><figcaption>Costado derecho · Musashi</figcaption></figure>
+      <figure class="mock"><img src="img/n-espalda.jpg" alt="Total black, espalda: corona blanca con perlas entre laureles y 我が辞書に不可能はない" width="673" height="674" loading="lazy"><figcaption>Espalda · la corona</figcaption></figure>
+      <figure class="mock"><img src="img/n-bajo-visera.jpg" alt="Total black boca arriba: bajo visera negro con 為せば成る y cinta en katakana en blanco" width="730" height="730" loading="lazy"><figcaption>Bajo visera y cinta</figcaption></figure>
+      <figure class="mock"><img src="img/n-lifestyle.jpg" alt="Un joven con la gorra total black en una calle de piedra" width="545" height="730" loading="lazy" style="object-position:50% 25%"><figcaption>Puesta · uso diario</figcaption></figure>
     </div>
   </section>
 
@@ -342,32 +379,56 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
     <div class="section-head">
       <span class="eyebrow">Arte por zona</span>
       <h2 id="h-arte">Planos para el taller de bordado</h2>
-      <p>Cada plano muestra el panel extendido, antes de armar, sobre una cuadrícula de 10 mm. Las cotas están en milímetros. El arte es la guía para el digitalizador; el archivo de puntadas se arma a partir de él.</p>
+      <p>Cada plano muestra el panel extendido, antes de armar, sobre una cuadrícula de 10 mm. Las cotas están en milímetros. Los planos están en la versión roja; la total black usa el mismo arte, con hilo blanco donde va piedra y gris carbón donde va vino.</p>
     </div>
 
     <div class="zones">
       <article class="zone">
         <figure class="plate">
-          <svg class="art" id="svgFront" viewBox="0 0 260 165" role="img" aria-label="Panel frontal con 最強の者へ en arco, アレクサンドロス, マケドニア y una corona, con cotas de 105 por 62 milímetros">
+          <svg class="art" id="svgFront" viewBox="0 0 260 165" role="img" aria-label="Panel frontal con 最強の者へ en arco, アレクサンドロス, マケドニア y la insignia, con cotas de 105 por 73 milímetros">
             <rect class="gridrect" width="260" height="165"/>
             <path class="tw" d="M20,145 C24,70 70,15 130,15 C190,15 236,70 240,145 Q130,151 20,145 Z"/>
             <path class="seam" d="M20,145 Q130,151 240,145"/>
-            <path id="arcF" d="M80,98 Q130,70 180,98" fill="none"/>
+            <path id="arcF" d="M80,94 Q130,66 180,94" fill="none"/>
             <text class="t-kanji st" font-size="18" letter-spacing="1.2"><textPath href="#arcF" startOffset="50%" text-anchor="middle">最強の者へ</textPath></text>
-            <text class="t-kanji st" x="130" y="102" font-size="8" letter-spacing=".6" text-anchor="middle">アレクサンドロス</text>
-            <text class="t-kanji st" x="130" y="117" font-size="12" letter-spacing="1" text-anchor="middle">マケドニア</text>
-            <use href="#crown" x="121" y="118" width="18" height="18"/>
+            <text class="t-kanji st" x="130" y="98" font-size="8" letter-spacing=".6" text-anchor="middle">アレクサンドロス</text>
+            <text class="t-kanji st" x="130" y="112" font-size="12" letter-spacing="1" text-anchor="middle">マケドニア</text>
+            <use href="#badge" x="116.2" y="112" width="27.6" height="27.6"/>
             <g id="dimFront"></g>
           </svg>
         </figure>
         <div class="spec">
           <header><span class="tag">Zona 1 · Frente</span><h3>Alejandro Magno</h3></header>
           <dl>
-            <dt>Medida</dt><dd>105 × 62 mm, centrado en el panel</dd>
-            <dt>Ubicación</dt><dd>La base de la corona va a 10 mm de la costura de la visera</dd>
-            <dt>Técnica</dt><dd>Kanji y kana en satén con trazo de pincel; en los trazos gruesos, relleno tatami. La corona en bordado plano, con las perlas en satén circular de 2 mm.</dd>
-            <dt>Hilo</dt><dd>Piedra, mate; terciopelo de la corona en vino</dd>
+            <dt>Medida</dt><dd>105 × 73 mm con la insignia, centrado en el panel</dd>
+            <dt>Ubicación</dt><dd>La punta de la insignia va a 7 mm de la costura de la visera</dd>
+            <dt>Técnica</dt><dd>Kanji y kana en satén con trazo de pincel; en los trazos gruesos, relleno tatami. La insignia es un parche aparte (ver zona 2).</dd>
+            <dt>Hilo</dt><dd>Piedra en la roja · blanco en la total black</dd>
             <dt>Ojo</dt><dd>Revisar cada carácter en la prueba: <span class="jp" lang="ja">最 強 の 者 へ · ア レ ク サ ン ド ロ ス · マ ケ ド ニ ア</span>. La línea en katakana mide 5 mm de alto: usar hilo fino (60 wt).</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="zone">
+        <figure class="plate">
+          <svg class="art" id="svgBadge" viewBox="0 0 150 80" role="img" aria-label="Insignia en escudo con corona, katanas cruzadas, laureles y 最強, en rojo cardenal y en total black, detalle a escala 2:1">
+            <rect class="gridrect" width="150" height="80"/>
+            <rect x="5" y="3" width="66" height="64" rx="2" class="tw"/>
+            <use href="#badge" x="10.4" y="6" width="55.2" height="55.2"/>
+            <g class="cw-black">
+              <rect x="79" y="3" width="66" height="64" rx="2" class="tw"/>
+              <use href="#badge" x="84.4" y="6" width="55.2" height="55.2"/>
+            </g>
+            <g id="dimBadge"></g>
+          </svg>
+        </figure>
+        <div class="spec">
+          <header><span class="tag">Zona 2 · Insignia</span><h3>El escudo de 最強</h3></header>
+          <dl>
+            <dt>Medida</dt><dd>20 × 24 mm (el plano está a escala 2:1)</dd>
+            <dt>Formato</dt><dd>Parche bordado sobre sarga del mismo color de la gorra, con borde overlock (merrow) de 2 mm. Se cose sobre el panel frontal con puntada invisible.</dd>
+            <dt>Dentro</dt><dd>Una corona arriba, dos katanas cruzadas, una corona de laurel y <span class="jp" lang="ja">最強</span> en el centro, en satén</dd>
+            <dt>Colores</dt><dd>Roja: borde y bordado en piedra, detalles en vino. Total black: borde y bordado en blanco, detalles en gris carbón.</dd>
           </dl>
         </div>
       </article>
@@ -388,11 +449,11 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
           </svg>
         </figure>
         <div class="spec">
-          <header><span class="tag">Zona 2 · Costado izquierdo</span><h3>Grecia · el busto</h3></header>
+          <header><span class="tag">Zona 3 · Costado izquierdo</span><h3>Grecia · el busto</h3></header>
           <dl>
             <dt>Medida</dt><dd>El conjunto mide 92 × 80 mm; el busto solo, 55 × 62 mm</dd>
             <dt>Ubicación</dt><dd>Centrado en el panel; el sello va a 16 mm de la costura inferior</dd>
-            <dt>Técnica</dt><dd>Estilo grabado: el contorno y el rayado del mármol en pespunte fino piedra, y las sombras en vino con tatami de baja densidad. Los laureles en plano piedra. El sello 大王 relleno en vino, con los kanji en piedra.</dd>
+            <dt>Técnica</dt><dd>Estilo grabado: el contorno y el rayado del mármol en pespunte fino, y las sombras con tatami de baja densidad. Los laureles en plano. El sello 大王 relleno, con los kanji en reserva de hilo claro.</dd>
             <dt>Arte</dt><dd>El recuadro punteado es la referencia sacada del mockup. Hay que vectorizarla a línea antes de digitalizar.</dd>
             <dt>Ojo</dt><dd>El sello dice <span class="jp" lang="ja">大王</span> («el Grande»), en horizontal</dd>
           </dl>
@@ -417,12 +478,12 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
           </svg>
         </figure>
         <div class="spec">
-          <header><span class="tag">Zona 3 · Costado derecho</span><h3>Miyamoto Musashi</h3></header>
+          <header><span class="tag">Zona 4 · Costado derecho</span><h3>Miyamoto Musashi</h3></header>
           <dl>
             <dt>Medida</dt><dd>105 × 66 mm, el mismo peso visual que el busto</dd>
             <dt>Ubicación</dt><dd>Centrado en el panel; el sello va a 24 mm de la costura inferior</dd>
-            <dt>Técnica</dt><dd>El ensō en satén ancho vino, con trazo de pincel. Las katanas en contorno piedra, con tsuba y mango encordado. Los kanji en satén piedra. El sello relleno en vino, con 武蔵 en reserva (se ve la tela).</dd>
-            <dt>Hilo</dt><dd>Piedra + vino</dd>
+            <dt>Técnica</dt><dd>El ensō en satén ancho, con trazo de pincel. Las katanas en contorno, con tsuba y mango encordado. Los kanji en satén. El sello relleno, con 武蔵 en reserva (se ve la tela).</dd>
+            <dt>Hilo</dt><dd>Roja: piedra y vino · total black: blanco y gris carbón</dd>
             <dt>Ojo</dt><dd>Los kanji se leen de arriba abajo: <span class="jp" lang="ja">独, 行, 道</span>. Si el taller no tiene la fuente, mandar este trazo como vector.</dd>
           </dl>
         </div>
@@ -430,7 +491,7 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
 
       <article class="zone">
         <figure class="plate">
-          <svg class="art" id="svgBack" viewBox="0 0 260 168" role="img" aria-label="Paneles traseros con una corona real grande entre dos laureles, la frase 我が辞書に不可能はない en arco y la correa con hebilla de latón grabada con una corona">
+          <svg class="art" id="svgBack" viewBox="0 0 260 168" role="img" aria-label="Paneles traseros con una corona real grande entre dos laureles, la frase 我が辞書に不可能はない en arco y la correa con hebilla grabada con una corona">
             <rect class="gridrect" width="260" height="168"/>
             <path class="tw" d="M20,150 C26,80 70,25 130,20 C190,25 234,80 240,150 Z"/>
             <path class="seam" d="M130,20 V108"/>
@@ -448,20 +509,20 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
           </svg>
         </figure>
         <div class="spec">
-          <header><span class="tag">Zona 4 · Espalda</span><h3>La corona</h3></header>
+          <header><span class="tag">Zona 5 · Espalda</span><h3>La corona</h3></header>
           <dl>
             <dt>Medida</dt><dd>La corona mide 60 mm de ancho; la frase va en un arco de 108 mm y cada laurel mide 46 mm</dd>
             <dt>Ubicación</dt><dd>Centrado sobre la costura trasera; la base de la corona va a 8 mm de la abertura</dd>
-            <dt>Técnica</dt><dd>La corona en bordado plano piedra: banda con dos filas de perlas, cinco joyas en vino, puntas con perlas en satén circular, arcos con perlas y orbe. El terciopelo interior en tatami vino. La frase en satén con trazo de pincel.</dd>
+            <dt>Técnica</dt><dd>La corona en bordado plano: banda con dos filas de perlas, cinco joyas, puntas con perlas en satén circular, arcos con perlas y orbe. El terciopelo interior en tatami. La frase en satén con trazo de pincel.</dd>
             <dt>Letra</dt><dd>6 mm de alto, 11 caracteres: <span class="jp" lang="ja">我 が 辞 書 に 不 可 能 は な い</span></dd>
-            <dt>Cierre</dt><dd>Correa de la misma sarga, con hebilla deslizante de latón envejecido grabada con una corona</dd>
+            <dt>Cierre</dt><dd>Correa de la misma tela. Hebilla deslizante grabada con una corona: latón envejecido en la roja, metal negro mate en la total black.</dd>
           </dl>
         </div>
       </article>
 
       <article class="zone">
         <figure class="plate">
-          <svg class="art" id="svgBrim" viewBox="0 0 260 130" role="img" aria-label="Visera vista desde arriba con ocho pespuntes y una greca griega en vino a lo largo del borde">
+          <svg class="art" id="svgBrim" viewBox="0 0 260 130" role="img" aria-label="Visera vista desde arriba con ocho pespuntes y una greca griega a lo largo del borde">
             <rect class="gridrect" width="260" height="130"/>
             <path class="tw" d="M15,40 Q130,190 245,40 L215,25 Q130,80 45,25 Z"/>
             <g id="brimTop"></g>
@@ -469,11 +530,11 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
           </svg>
         </figure>
         <div class="spec">
-          <header><span class="tag">Zona 5 · Visera</span><h3>Greca griega</h3></header>
+          <header><span class="tag">Zona 6 · Visera</span><h3>Greca griega</h3></header>
           <dl>
             <dt>Medida</dt><dd>Banda de 4 mm a lo largo de todo el borde exterior</dd>
             <dt>Ubicación</dt><dd>A 2 mm del canto, por fuera de los 8 pespuntes</dd>
-            <dt>Técnica</dt><dd>Pespunte triple (bean stitch) en vino, tono sobre tono. Se nota de cerca, no de lejos.</dd>
+            <dt>Técnica</dt><dd>Pespunte triple (bean stitch), tono sobre tono: vino en la roja, gris carbón en la total black</dd>
             <dt>Pespuntes</dt><dd>8 filas tono sobre tono</dd>
           </dl>
         </div>
@@ -490,11 +551,11 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
           </svg>
         </figure>
         <div class="spec">
-          <header><span class="tag">Zona 6 · Bajo visera</span><h3>La frase que las une</h3></header>
+          <header><span class="tag">Zona 7 · Bajo visera</span><h3>La frase que las une</h3></header>
           <dl>
             <dt>Medida</dt><dd>70 × 45 mm, centrado</dd>
-            <dt>Técnica</dt><dd>Serigrafía a una tinta sobre la tela gris, antes de armar la visera</dd>
-            <dt>Tinta</dt><dd>Piedra. En el mockup salió en gris oscuro, que también funciona y es más discreto; elegir con la prueba de tela.</dd>
+            <dt>Técnica</dt><dd>Serigrafía a una tinta, antes de armar la visera</dd>
+            <dt>Colores</dt><dd>Roja: tela gris con tinta piedra (en el mockup salió gris oscuro, que también funciona). Total black: tela negra con tinta blanca.</dd>
             <dt>Ojo</dt><dd><span class="jp" lang="ja">為 せ ば 成 る</span>, cuatro caracteres</dd>
           </dl>
         </div>
@@ -502,14 +563,15 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
 
       <article class="zone">
         <div class="plate" style="display:grid;gap:.6rem;padding:1rem">
-          <div class="taping" lang="ja" aria-label="Cinta interior">アレクサンドロス · 武蔵 · ナポレオン · アレクサンドロス · 武蔵 · ナポレオン · アレクサンドロス · 武蔵 · ナポレオン</div>
+          <div class="taping red" lang="ja" aria-label="Cinta interior de la roja">アレクサンドロス · 武蔵 · ナポレオン · アレクサンドロス · 武蔵 · ナポレオン · アレクサンドロス · 武蔵 · ナポレオン</div>
+          <div class="taping black" lang="ja" aria-label="Cinta interior de la total black">アレクサンドロス · 武蔵 · ナポレオン · アレクサンドロス · 武蔵 · ナポレオン · アレクサンドロス · 武蔵 · ナポレオン</div>
           <span class="eyebrow">Cinta de 15 mm · repetición cada 80 mm</span>
         </div>
         <div class="spec">
-          <header><span class="tag">Zonas 7 y 8 · Interior</span><h3>Cinta y correa</h3></header>
+          <header><span class="tag">Zona 8 · Interior</span><h3>Cinta interior</h3></header>
           <dl>
-            <dt>Cinta</dt><dd>Cubre las costuras internas. Va estampada en piedra sobre rojo con los tres nombres en bucle: Alejandro, Musashi y Napoleón.</dd>
-            <dt>Correa</dt><dd>Ver zona 4: sarga roja y hebilla de latón grabada con una corona</dd>
+            <dt>Cinta</dt><dd>Cubre las costuras internas. Lleva los tres nombres en bucle: Alejandro, Musashi y Napoleón.</dd>
+            <dt>Colores</dt><dd>Piedra sobre rojo en la roja; blanco sobre negro en la total black</dd>
           </dl>
         </div>
       </article>
@@ -525,15 +587,16 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
       <table>
         <tbody>
           <tr><th scope="row">Modelo</th><td>A-frame de copa alta, 5 paneles: frente alto y rígido con entretela (buckram), sin costura central, que sube recto desde la visera. Dos paneles laterales y dos traseros.</td></tr>
-          <tr><th scope="row">Tela</th><td>Sarga de algodón 100 %, rojo cardenal</td></tr>
-          <tr><th scope="row">Visera</th><td>Precurvada, con 8 pespuntes tono sobre tono y la greca en vino. Bajo visera en sarga gris.</td></tr>
+          <tr><th scope="row">Colores</th><td>Rojo cardenal, con hilo piedra y detalles en vino. Total black, con hilo blanco y detalles en gris carbón. El diseño es el mismo en los dos.</td></tr>
+          <tr><th scope="row">Tela</th><td>Sarga de algodón 100 %</td></tr>
+          <tr><th scope="row">Visera</th><td>Precurvada, con 8 pespuntes tono sobre tono y la greca. Bajo visera: gris en la roja, negro en la total black.</td></tr>
+          <tr><th scope="row">Insignia</th><td>Parche bordado de 20 × 24 mm con borde overlock, cosido al frente (zona 2)</td></tr>
           <tr><th scope="row">Ojales</th><td>4, bordados tono sobre tono (2 laterales y 2 traseros)</td></tr>
-          <tr><th scope="row">Botón</th><td>Forrado en la misma sarga roja</td></tr>
+          <tr><th scope="row">Botón</th><td>Forrado en la misma tela</td></tr>
           <tr><th scope="row">Banda interior</th><td>Algodón, para el sudor</td></tr>
-          <tr><th scope="row">Cinta interior</th><td>15 mm, estampada (zona 7)</td></tr>
-          <tr><th scope="row">Cierre</th><td>Correa de sarga roja con hebilla deslizante de latón envejecido, grabada con una corona</td></tr>
+          <tr><th scope="row">Cierre</th><td>Correa de la misma tela. Hebilla deslizante grabada con una corona: latón envejecido en la roja, negro mate en la total black.</td></tr>
           <tr><th scope="row">Talla</th><td>Ajustable, de 56 a 60 cm de contorno</td></tr>
-          <tr><th scope="row">Orden de armado</th><td>Bordar y estampar los paneles y el bajo visera planos. Después armar la corona, coser la visera y poner la cinta y la banda.</td></tr>
+          <tr><th scope="row">Orden de armado</th><td>Bordar y estampar los paneles y el bajo visera planos, y bordar la insignia aparte. Después coser la insignia al frente, armar la corona, coser la visera y poner la cinta y la banda.</td></tr>
         </tbody>
       </table>
     </div>
@@ -542,15 +605,29 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
   <section id="paleta" aria-labelledby="h-paleta">
     <div class="section-head">
       <span class="eyebrow">Paleta</span>
-      <h2 id="h-paleta">Cinco colores, nada más</h2>
+      <h2 id="h-paleta">Dos colores, el mismo diseño</h2>
       <p>Los códigos son de pantalla. Para producir, pedir al taller su carta de hilos y elegir el tono más cercano con la tela delante.</p>
     </div>
-    <div class="swatches">
-      <div class="sw"><div class="chip" style="background:var(--twill)"></div><b>Rojo cardenal</b><code>#9B1B26</code><span>Tela</span></div>
-      <div class="sw"><div class="chip" style="background:var(--stone)"></div><b>Piedra</b><code>#D6CBB0</code><span>Hilo principal y tintas</span></div>
-      <div class="sw"><div class="chip" style="background:var(--wine)"></div><b>Vino</b><code>#6E0F18</code><span>Sombras, terciopelo de la corona y sellos</span></div>
-      <div class="sw"><div class="chip" style="background:var(--brim-grey)"></div><b>Gris</b><code>#8A8A85</code><span>Bajo visera</span></div>
-      <div class="sw"><div class="chip" style="background:var(--brass)"></div><b>Latón envejecido</b><code>#9A7B4F</code><span>Hebilla</span></div>
+    <div class="palettes">
+      <div class="palette">
+        <h3>Rojo cardenal</h3>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:var(--twill)"></div><b>Rojo cardenal</b><code>#9B1B26</code><span>Tela</span></div>
+          <div class="sw"><div class="chip" style="background:var(--stone)"></div><b>Piedra</b><code>#D6CBB0</code><span>Hilo principal y tintas</span></div>
+          <div class="sw"><div class="chip" style="background:var(--wine)"></div><b>Vino</b><code>#6E0F18</code><span>Sombras, sellos y greca</span></div>
+          <div class="sw"><div class="chip" style="background:var(--brim-grey)"></div><b>Gris</b><code>#8A8A85</code><span>Bajo visera</span></div>
+          <div class="sw"><div class="chip" style="background:var(--brass)"></div><b>Latón envejecido</b><code>#9A7B4F</code><span>Hebilla</span></div>
+        </div>
+      </div>
+      <div class="palette">
+        <h3>Total black</h3>
+        <div class="swatches four">
+          <div class="sw"><div class="chip" style="background:var(--black)"></div><b>Negro</b><code>#111111</code><span>Tela, visera, bajo visera y correa</span></div>
+          <div class="sw"><div class="chip" style="background:var(--white-thread)"></div><b>Blanco</b><code>#F5F5F2</code><span>Hilo principal y tintas</span></div>
+          <div class="sw"><div class="chip" style="background:var(--charcoal)"></div><b>Gris carbón</b><code>#3A3A3A</code><span>Sombras, sellos y greca</span></div>
+          <div class="sw"><div class="chip" style="background:var(--matte-black)"></div><b>Negro mate</b><code>#2B2B2B</code><span>Hebilla</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -558,22 +635,27 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
     <div class="section-head">
       <span class="eyebrow">Prompt</span>
       <h2 id="h-prompt">Prompt maestro para generar la gorra</h2>
-      <p>Funciona en Google Flow y en otros generadores de imágenes. Para ver otra vista, agrega al final, por ejemplo, «now photograph it from the back». Para que salga la misma forma, adjunta como referencia la foto del frente.</p>
+      <p>Funciona en Google Flow y en otros generadores de imágenes. Para que salga la misma forma, adjunta como referencia la foto del frente. Para la total black conviene adjuntar la foto roja y pedir solo un cambio de colores: así la letra japonesa no se traduce ni se deforma.</p>
     </div>
     <div class="prompt-box">
       <div class="prompt-bar">
-        <span class="eyebrow">Inglés · diseño completo v6</span>
-        <button type="button" id="copyPrompt">Copiar prompt</button>
+        <span class="eyebrow">Inglés · rojo cardenal</span>
+        <button type="button" class="copy" data-copy="promptRed">Copiar prompt</button>
       </div>
-      <pre id="promptText">A structured A-frame high-crown 5-panel cap in deep cardinal red (#9B1B26) cotton twill: tall, firm, seamless front panel (stiff buckram) rising steeply from a pre-curved brim with 8 rows of tonal stitching, embroidered eyelets, covered top button, grey underside of the brim.
+      <pre id="promptRed">A structured A-frame high-crown 5-panel cap in deep cardinal red (#9B1B26) cotton twill: tall, firm, seamless front panel (stiff buckram) rising steeply from a pre-curved brim with 8 rows of tonal stitching, embroidered eyelets, covered top button, grey underside of the brim.
 Palette: matte stone thread (#D6CBB0) as the main color, dark wine thread (#6E0F18) for shading and subtle patterns; no metallic, no other colors. All lettering in Japanese, bold brush-calligraphy embroidery.
-FRONT: big arched line 最強の者へ in stone; under it a smaller katakana line アレクサンドロス; under it a straight line マケドニア; under that a small detailed royal crown.
+FRONT: big arched line 最強の者へ in stone; under it a smaller katakana line アレクサンドロス; under it a straight line マケドニア; under that, centered, a small embroidered crest badge like a sewn-on patch (shield with a stone merrowed border, red inside, a small crown on top, two crossed katanas, a laurel wreath and the kanji 最強 in the center).
 LEFT SIDE PANEL: a large, detailed classical Greek marble bust of Alexander the Great in three-quarter view, idealized young face, thick wavy hair rising from the forehead (anastole), engraving-style embroidery with stone outlines and wine shading; below it two small laurel sprigs and a small square wine seal with 大王.
 RIGHT SIDE PANEL: a large brush-stroke enso circle in wine thread, two crossed katanas in detailed stone line-art with round tsuba guards and wrapped handles, the kanji 独行道 written vertically in stone brush calligraphy, and a small square seal with 武蔵.
 BACK: a large, well structured royal crown about 6 cm wide in stone with wine shading (jeweled headband with a row of pearls, five points topped with pearls, crossing arches with pearl beading, wine velvet cap inside, small orb on top), flanked by two laurel branches; above it the arched line 我が辞書に不可能はない. Red twill strap with an antique-brass slide buckle engraved with a small crown.
 TOP OF THE BRIM: thin Greek key (meander) border along the edge in wine thread.
 UNDER THE BRIM: grey fabric printed with a laurel wreath and, inside it, 為せば成る. Inner taping printed in stone: アレクサンドロス · 武蔵 · ナポレオン repeated.
 Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft diffused studio light, natural soft shadow. Write every Japanese character exactly as given, not mirrored. No Greek, Latin or French letters, no stickers, no watermark.</pre>
+      <div class="prompt-bar">
+        <span class="eyebrow">Inglés · total black (con la foto roja adjunta)</span>
+        <button type="button" class="copy" data-copy="promptBlack">Copiar prompt</button>
+      </div>
+      <pre id="promptBlack">Recolor the attached photo, nothing else. Pure color change of the same photo: same cap, same angle, same composition and EXACTLY the same Japanese characters in the same places. Do not translate, do not rewrite, no Latin letters. New colors: the whole cap jet black (#111111), including brim, underside of the brim, button and strap; every letter, line art and print in bright white (#F5F5F2); shading, seals, the enso and the Greek key border in charcoal grey (#3A3A3A); the buckle in matte black metal. White seamless background, 1:1.</pre>
     </div>
   </section>
 
@@ -588,17 +670,17 @@ Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft d
         <div class="sub" lang="ja">最強の者へ</div>
         <p>Tres figuras que no aceptaron un no por respuesta. Alejandro dejó su imperio al más fuerte. Musashi escribió el camino de andar solo. Napoleón dijo que en su diccionario no existía la palabra imposible.</p>
         <p>Debajo de la visera va lo que las une: <span class="jp" lang="ja">為せば成る</span>, si lo intentas, se logra.</p>
-        <p class="care">Sarga de algodón 100 % · Bordada · Talla 56–60 cm<br>Lavar a mano en frío · No usar secadora</p>
+        <p class="care">Sarga de algodón 100 % · Bordada · Talla 56–60 cm<br>Rojo cardenal · Total black<br>Lavar a mano en frío · No usar secadora</p>
       </div>
       <div class="hang-notes">
-        <p>La etiqueta repite la paleta de la gorra: fondo rojo cardenal e impresión en piedra.</p>
+        <p>La etiqueta repite los colores de cada gorra. En la roja va con fondo rojo cardenal e impresión en piedra; en la total black, con fondo negro e impresión en blanco.</p>
         <p>El texto sigue el recorrido de la gorra: frente y costados, espalda y, al final, lo que solo ve quien la lleva puesta.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <span>Kratistos · ficha técnica v6 · 19 de octubre de 2026</span>
+    <span>Kratistos · ficha técnica v7 · 19 de octubre de 2026</span>
     <span>Mockups generados con Google Flow (Nano Banana 2.1). Arte vectorial de referencia para el digitalizador.</span>
   </footer>
 </div>
@@ -614,6 +696,22 @@ Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft d
     return e;
   }
   const $ = id => document.getElementById(id);
+
+  // Selector de color de los mockups (se recuerda en este navegador)
+  const tabs = [...document.querySelectorAll('.switch [role="tab"]')];
+  function show(cw) {
+    tabs.forEach(t => {
+      const on = t.dataset.cw === cw;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      $("panel-" + t.dataset.cw).hidden = !on;
+    });
+    try { localStorage.setItem("kratistos-color", cw); } catch (e) {}
+  }
+  tabs.forEach(t => t.addEventListener("click", () => show(t.dataset.cw)));
+  try {
+    const saved = localStorage.getItem("kratistos-color");
+    if (saved === "black" || saved === "roja") show(saved);
+  } catch (e) {}
 
   // Cota: línea con topes y medida en mm. side: -1 arriba/izquierda, 1 abajo/derecha
   function dim(g, x1, y1, x2, y2, label, side) {
@@ -656,14 +754,37 @@ Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft d
     mk("path", { d: leaf, class: leafClass, transform: `translate(${end.x},${end.y}) rotate(${ang})` }, g);
   }
 
+  // Laurel de la insignia: hojas sobre un arco de circunferencia (el símbolo no se renderiza, así que va por cálculo)
+  (function badgeLaurel() {
+    const g = $("badgeLaurel");
+    const cx = 0, cy = 4, r = 24;
+    for (const side of [-1, 1]) {
+      for (let i = 0; i < 7; i++) {
+        const deg = side < 0 ? 108 + i * 15 : 72 - i * 15;
+        const x = cx + r * Math.cos(rad(deg)), y = cy + r * Math.sin(rad(deg));
+        const tangent = deg + (side < 0 ? 90 : -90);
+        for (const k of [-1, 1]) {
+          mk("ellipse", { cx: 0, cy: 0, rx: 3.3, ry: 1.3, transform: `translate(${x},${y}) rotate(${tangent + k * 35}) translate(2.6,0)`, style: "fill:var(--stone)" }, g);
+        }
+      }
+    }
+  })();
+
   // ---- Zona 1: frente
   const gF = $("dimFront");
-  dim(gF, 77.5, 62, 182.5, 62, "105 mm", -1);
-  dim(gF, 196, 72, 196, 134, "62 mm", 1);
-  dim(gF, 150, 134, 150, 145.5, "10", 1);
+  dim(gF, 77.5, 58, 182.5, 58, "105 mm", -1);
+  dim(gF, 196, 66, 196, 138.5, "73 mm", 1);
+  dim(gF, 150, 138.5, 150, 145.5, "7", 1);
   note(gF, 24, 160, "costura de la visera ↑", "start");
 
-  // ---- Zona 2: busto (arte de referencia)
+  // ---- Zona 2: insignia (detalle 2:1)
+  const gBd = $("dimBadge");
+  dim(gBd, 19.2, 64.5, 56.8, 64.5, "20 mm", -1);
+  dim(gBd, 69, 11.5, 69, 59, "24 mm", -1);
+  note(gBd, 38, 78.5, "rojo cardenal · escala 2:1", "middle");
+  note(gBd, 112, 78.5, "total black", "middle");
+
+  // ---- Zona 3: busto (arte de referencia)
   const gB = $("dimBust");
   dim(gB, 104, 160, 196, 160, "92 mm", 1);
   dim(gB, 214, 50, 214, 130, "80 mm", 1);
@@ -671,7 +792,7 @@ Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft d
   note(gB, 34, 166, "← frente", "start");
   note(gB, 150, 36, "referencia del mockup · vectorizar", "middle");
 
-  // ---- Zona 3: Musashi
+  // ---- Zona 4: Musashi
   (function musashi() {
     const g = $("musashi");
     const cx = 138, cy = 94, r = 28;
@@ -714,7 +835,7 @@ Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft d
     note(d3, 266, 166, "frente →", "end");
   })();
 
-  // ---- Zona 4: espalda
+  // ---- Zona 5: espalda
   (function back() {
     const g = $("backLaurel");
     laurel(g, "M100,100 Q80,84 88,58", 6, 6, "st");
@@ -724,7 +845,7 @@ Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft d
     dim(d4, 100, 161, 160, 161, "60 mm", 1);
   })();
 
-  // ---- Zonas 5 y 6: visera (curvas interpoladas entre canto y costura)
+  // ---- Zonas 6 y 7: visera (curvas interpoladas entre canto y costura)
   const outer = [[15, 40], [130, 190], [245, 40]];
   const inner = [[45, 25], [130, 80], [215, 25]];
   const brimCurve = f => {
@@ -761,20 +882,23 @@ Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft d
     dim(d6, 236, 60, 236, 106, "45 mm", 1);
   })();
 
-  // Copiar el prompt
-  const btn = $("copyPrompt"), pre = $("promptText");
-  btn.addEventListener("click", () => {
-    const done = () => { btn.textContent = "Copiado"; setTimeout(() => { btn.textContent = "Copiar prompt"; }, 1800); };
-    const fallback = () => {
-      const range = document.createRange();
-      range.selectNodeContents(pre);
-      const sel = window.getSelection();
-      sel.removeAllRanges(); sel.addRange(range);
-      btn.textContent = "Texto seleccionado: copia con Ctrl+C";
-    };
-    try {
-      navigator.clipboard.writeText(pre.textContent).then(done, fallback);
-    } catch (e) { fallback(); }
+  // Copiar los prompts
+  document.querySelectorAll(".copy").forEach(btn => {
+    const pre = $(btn.dataset.copy);
+    const label = btn.textContent;
+    btn.addEventListener("click", () => {
+      const done = () => { btn.textContent = "Copiado"; setTimeout(() => { btn.textContent = label; }, 1800); };
+      const fallback = () => {
+        const range = document.createRange();
+        range.selectNodeContents(pre);
+        const sel = window.getSelection();
+        sel.removeAllRanges(); sel.addRange(range);
+        btn.textContent = "Texto seleccionado: copia con Ctrl+C";
+      };
+      try {
+        navigator.clipboard.writeText(pre.textContent).then(done, fallback);
+      } catch (e) { fallback(); }
+    });
   });
 })();
 </script>
