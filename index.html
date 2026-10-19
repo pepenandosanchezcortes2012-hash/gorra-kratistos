@@ -87,7 +87,7 @@ section { display: grid; gap: 1.8rem; }
 .facts li::before { content: "— "; color: var(--accent); }
 .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; min-width: 0; }
 .duo figure { margin: 0; display: grid; gap: .45rem; min-width: 0; }
-.duo img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; border: 1px solid var(--line); background: #fff; }
+.duo img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; border: 1px solid var(--line); background: #fff; }
 figcaption { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); }
 .dot { display: inline-block; width: .7em; height: .7em; border-radius: 50%; vertical-align: -.05em; margin-right: .4em; border: 1px solid var(--line); }
 
@@ -122,7 +122,7 @@ figcaption { font-family: var(--f-mono); font-size: .76rem; color: var(--muted);
 .band-head { display: grid; gap: .5rem; max-width: 62ch; }
 .band-head .eyebrow, .band-head p { color: var(--band-muted); }
 .chips { display: flex; flex-wrap: wrap; gap: .45rem; }
-.chips span { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; border: 1px solid var(--band-line); border-radius: 999px; padding: .25rem .7rem; }
+.chips > span { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; border: 1px solid var(--band-line); border-radius: 999px; padding: .25rem .7rem; }
 .chips i { width: .7rem; height: .7rem; border-radius: 50%; border: 1px solid var(--band-line); display: inline-block; }
 .viewer { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1.6rem; align-items: start; }
 .stage { margin: 0; min-width: 0; }
@@ -143,7 +143,7 @@ figcaption { font-family: var(--f-mono); font-size: .76rem; color: var(--muted);
 
 /* Pantalla completa */
 .lightbox {
-  position: fixed; inset: 0; z-index: 50; background: rgba(8, 8, 8, .95); color: #F5F5F2;
+  position: fixed; inset: 0; z-index: 50; background: #0A0A0A; color: #F5F5F2;
   display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: .6rem;
   padding: calc(env(safe-area-inset-top, 0px) + 12px) max(12px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 12px) max(12px, env(safe-area-inset-left, 0px));
 }
@@ -158,6 +158,8 @@ figcaption { font-family: var(--f-mono); font-size: .76rem; color: var(--muted);
 .lb-btn:hover { background: rgba(255, 255, 255, .16); }
 .lb-btn:focus-visible { outline: 2px solid #F5F5F2; outline-offset: 2px; }
 .lb-caption { text-align: center; font-size: .9rem; color: #C9C9C5; max-width: 70ch; margin: 0 auto; }
+.touch-only, .phone-only { display: none; }
+@media (hover: none) { .touch-only { display: inline; } }
 
 /* Arte por zona */
 .zones { display: grid; gap: 2.6rem; }
@@ -209,7 +211,7 @@ th { font-family: var(--f-mono); font-weight: 500; font-size: .74rem; letter-spa
 .swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; }
 .swatches.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .swatches.six { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-.sw { display: grid; gap: .45rem; min-width: 0; }
+.sw { display: grid; gap: .45rem; min-width: 0; align-content: start; }
 .chip { aspect-ratio: 4 / 3; border: 1px solid var(--line); border-radius: 2px; }
 .sw b { font-weight: 600; font-size: .95rem; }
 .sw code { font-family: var(--f-mono); font-size: .8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -253,10 +255,23 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
 }
 @media (max-width: 760px) {
   .hero, .zone, .hang, .viewer { grid-template-columns: minmax(0, 1fr); }
-  .lb-stage { grid-template-columns: minmax(0, 1fr); }
-  .lb-stage .lb-btn { display: none; }
   .hero .duo { order: -1; }
   .wrap { gap: 3.5rem; padding-block: 1.5rem 3rem; }
+  /* Vitrina en el celular: la foto, debajo las miniaturas y después el texto de la vista */
+  .viewer { gap: .9rem; }
+  .side { display: contents; }
+  .stage { order: 0; }
+  .thumbs { order: 1; gap: .55rem; }
+  .view-count { order: 2; margin-top: .3rem; }
+  .view-name { order: 3; font-size: 1.45rem; }
+  .view-desc { order: 4; }
+  .hint { order: 5; }
+  /* Pantalla completa: flechas grandes debajo de la foto */
+  .lb-stage { grid-template-columns: 1fr 1fr; grid-template-rows: minmax(0, 1fr) auto; }
+  .lb-stage img { grid-column: 1 / -1; grid-row: 1; }
+  .lb-stage .lb-btn { grid-row: 2; padding: .8rem 1.6rem; font-size: 1.1rem; }
+  #lbPrev { justify-self: start; }
+  #lbNext { justify-self: end; }
 }
 @media (max-width: 520px) {
   .figures { grid-template-columns: minmax(0, 1fr); }
@@ -266,6 +281,22 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
   .binding { grid-template-columns: minmax(0, 1fr); }
   .spec dl { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
   .spec dd { margin-bottom: .45rem; }
+  /* Vitrinas de orilla a orilla para que la foto sea lo más grande posible */
+  .band { margin-inline: -16px; border-radius: 0; border-inline: 0; padding: 1.5rem 16px; }
+  .thumb { font-size: .74rem; }
+  .lightbox { padding-inline: max(8px, env(safe-area-inset-left, 0px)) max(8px, env(safe-area-inset-right, 0px)); }
+  .lb-title { font-size: .7rem; letter-spacing: .05em; }
+  .jump a { flex: 1 1 auto; justify-content: center; }
+  /* Planos: más grandes para que se lean las cotas; se deslizan de lado */
+  .plate:has(> .art) { overflow-x: auto; overscroll-behavior-x: contain; }
+  .plate > .art { min-width: 560px; }
+  .phone-only { display: inline; }
+  /* Tabla de materiales: cada concepto arriba de su descripción */
+  .table-wrap { overflow: visible; }
+  table { min-width: 0; }
+  table, tbody, tr, th, td { display: block; width: auto; }
+  th { padding: .85rem 0 .2rem; border-bottom: 0; }
+  td { padding: 0 0 .85rem; }
 }
 </style>
 </head>
@@ -417,7 +448,7 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
               <button type="button" class="thumb" data-src="img/r-bajo-visera.jpg" data-title="Bajo visera" data-desc="Bajo visera gris con 為せば成る entre laureles, y la cinta interior アレクサンドロス · 武蔵 · ナポレオン." data-alt="Gorra roja boca arriba: bajo visera gris con 為せば成る y la cinta interior"><img src="img/r-bajo-visera.jpg" alt="" loading="lazy">Bajo visera</button>
               <button type="button" class="thumb" data-src="img/r-lifestyle.jpg" data-title="Puesta" data-desc="Así se ve de uso diario, en la calle." data-alt="Un joven con la gorra roja en una calle de piedra"><img src="img/r-lifestyle.jpg" alt="" loading="lazy" style="object-position:50% 25%">Puesta</button>
             </div>
-            <span class="hint">Toca la foto para verla en grande</span>
+            <span class="hint">Toca la foto para verla en grande<span class="touch-only"> · desliza de lado para cambiar de vista</span></span>
           </div>
         </div>
       </article>
@@ -451,7 +482,7 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
               <button type="button" class="thumb" data-src="img/n-bajo-visera.jpg" data-title="Bajo visera" data-desc="Bajo visera negro con 為せば成る en blanco entre laureles, y la cinta interior アレクサンドロス · 武蔵 · ナポレオン." data-alt="Gorra negra boca arriba: bajo visera con 為せば成る y la cinta interior en blanco"><img src="img/n-bajo-visera.jpg" alt="" loading="lazy">Bajo visera</button>
               <button type="button" class="thumb" data-src="img/n-lifestyle.jpg" data-title="Puesta" data-desc="Así se ve de uso diario, en la calle, en la misma toma que la roja para compararlas." data-alt="Un joven con la gorra negra en una calle de piedra"><img src="img/n-lifestyle.jpg" alt="" loading="lazy" style="object-position:50% 25%">Puesta</button>
             </div>
-            <span class="hint">Toca la foto para verla en grande</span>
+            <span class="hint">Toca la foto para verla en grande<span class="touch-only"> · desliza de lado para cambiar de vista</span></span>
           </div>
         </div>
       </article>
@@ -462,7 +493,7 @@ footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); bor
     <div class="section-head">
       <span class="eyebrow">Arte por zona</span>
       <h2 id="h-arte">Planos para el taller de bordado</h2>
-      <p>Cada plano muestra el panel extendido, antes de armar, sobre una cuadrícula de 10 mm. Las cotas están en milímetros. Los planos están en la versión roja; la total black usa el mismo arte, con hilo blanco donde va piedra y gris carbón donde va vino.</p>
+      <p>Cada plano muestra el panel extendido, antes de armar, sobre una cuadrícula de 10 mm. Las cotas están en milímetros. Los planos están en la versión roja; la total black usa el mismo arte, con hilo blanco donde va piedra y gris carbón donde va vino.<span class="phone-only"> En el celular, desliza cada plano de lado para verlo completo.</span></p>
     </div>
 
     <div class="zones">
@@ -856,9 +887,29 @@ Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft d
       count.textContent = `${i + 1} / ${thumbs.length}`;
       thumbs.forEach((x, j) => x.setAttribute("aria-current", j === i ? "true" : "false"));
     }
-    thumbs.forEach((t, i) => t.addEventListener("click", () => select(i)));
     const btn = v.querySelector(".stage-btn");
-    btn.addEventListener("click", () => lbOpen({ thumbs, idx, select, name: v.dataset.name }, btn));
+    const smooth = () => matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    thumbs.forEach((t, i) => t.addEventListener("click", () => {
+      select(i);
+      // En el celular la foto puede quedar arriba de la pantalla: se trae a la vista
+      if (btn.getBoundingClientRect().top < 0) btn.scrollIntoView({ block: "nearest", behavior: smooth() });
+    }));
+    // Deslizar sobre la foto cambia de vista; un deslizamiento no abre la pantalla completa
+    let sx = null, sy = null, lastSwipe = 0;
+    btn.addEventListener("touchstart", e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    btn.addEventListener("touchend", e => {
+      if (sx === null) return;
+      const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      sx = sy = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        lastSwipe = Date.now();
+        select((idx + (dx < 0 ? 1 : -1) + thumbs.length) % thumbs.length);
+      }
+    });
+    btn.addEventListener("click", () => {
+      if (Date.now() - lastSwipe < 500) return;
+      lbOpen({ thumbs, idx, select, name: v.dataset.name }, btn);
+    });
     select(0);
   });
 
@@ -1025,12 +1076,17 @@ Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft d
         range.selectNodeContents(pre);
         const sel = window.getSelection();
         sel.removeAllRanges(); sel.addRange(range);
-        btn.textContent = "Texto seleccionado: copia con Ctrl+C";
+        btn.textContent = "Texto seleccionado: ahora cópialo";
       };
       try {
         navigator.clipboard.writeText(pre.textContent).then(done, fallback);
       } catch (e) { fallback(); }
     });
+  });
+
+  // En el celular los planos se deslizan de lado: empiezan centrados
+  document.querySelectorAll(".plate").forEach(p => {
+    if (p.scrollWidth > p.clientWidth) p.scrollLeft = (p.scrollWidth - p.clientWidth) / 2;
   });
 })();
 </script>
