@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ficha técnica de la gorra roja Kratistos: Alejandro, el busto griego, Musashi y la corona.">
+<title>Gorra Kratistos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap&text=%E3%81%84%E3%81%8C%E3%81%9B%E3%81%AA%E3%81%AB%E3%81%AE%E3%81%AF%E3%81%B0%E3%81%B8%E3%82%8B%E3%82%A2%E3%82%AA%E3%82%AF%E3%82%B1%E3%82%B5%E3%82%B9%E3%83%89%E3%83%8A%E3%83%8B%E3%83%9D%E3%83%9E%E3%83%AC%E3%83%AD%E3%83%B3%E4%B8%8D%E5%8F%AF%E5%A4%A7%E5%BC%B7%E6%88%90%E6%88%91%E6%9B%B8%E6%9C%80%E6%AD%A6%E7%82%BA%E7%8B%AC%E7%8E%8B%E8%80%85%E8%83%BD%E8%94%B5%E8%A1%8C%E8%BE%9E%E9%81%93%E3%83%BB%C2%B7">
+<style>
+/* Layout: ficha técnica de taller. Plano a escala (cuadrícula de 10 mm) a la izquierda, especificación a la derecha; todo en una columna en el celular */
+:root {
+  --bg: #F3F1F0;
+  --surface: #FFFFFF;
+  --ink: #1D1817;
+  --muted: #6C6260;
+  --line: #DDD6D3;
+  --grid: #EDE7E5;
+  --accent: #9B1B26;
+  /* colores físicos de la gorra: iguales en tema claro y oscuro */
+  --twill: #9B1B26;
+  --twill-dark: #7A141E;
+  --stone: #D6CBB0;
+  --wine: #6E0F18;
+  --brim-grey: #8A8A85;
+  --brim-grey-dark: #74746F;
+  --brass: #9A7B4F;
+  --inside: #5A0F17;
+  --f-display: "Marcellus", "Trajan Pro", Georgia, serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --f-kanji: "Yuji Boku", "Yu Mincho", "Hiragino Mincho ProN", "MS Mincho", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151110; --surface: #1E1918; --ink: #EEE8E5; --muted: #A79D99;
+    --line: #3A3230; --grid: #2A2321; --accent: #E2646E; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #151110; --surface: #1E1918; --ink: #EEE8E5; --muted: #A79D99;
+  --line: #3A3230; --grid: #2A2321; --accent: #E2646E; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img { max-width: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 4.5rem; padding-block: 2.5rem 4rem; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.1; }
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); }
+h3 { font-size: 1.35rem; }
+p { margin: 0; }
+.eyebrow, .tag {
+  font-family: var(--f-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+.section-head { display: grid; gap: .6rem; max-width: 62ch; }
+.section-head p { color: var(--muted); }
+section { display: grid; gap: 1.8rem; }
+.jp { font-family: var(--f-kanji); }
+
+/* Portada */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 2.5rem; align-items: center; }
+.hero-text { display: grid; gap: 1.2rem; min-width: 0; }
+.hero h1 { font-size: clamp(3rem, 8vw, 5.6rem); letter-spacing: .02em; }
+.hero h1 .jp { display: block; font-size: .36em; letter-spacing: .3em; color: var(--accent); margin-top: .6rem; }
+.lead { font-size: 1.12rem; max-width: 46ch; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; font-family: var(--f-mono); font-size: .84rem; color: var(--muted); }
+.facts li::before { content: "— "; color: var(--accent); }
+.hero figure { margin: 0; display: grid; gap: .5rem; min-width: 0; }
+.hero img { width: 100%; height: auto; display: block; border: 1px solid var(--line); background: #fff; }
+figcaption { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); }
+
+/* Concepto */
+.figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.fig { padding: 1.4rem 1.2rem 1.5rem; display: grid; gap: .55rem; align-content: start; min-width: 0; border-left: 1px solid var(--line); }
+.fig:first-child { border-left: 0; padding-left: 0; }
+.fig h3 { font-size: 1.25rem; }
+.phrase { font-family: var(--f-kanji); font-size: 1.6rem; letter-spacing: .08em; color: var(--accent); line-height: 1.3; overflow-wrap: anywhere; }
+.phrase.long { font-size: 1.2rem; letter-spacing: .04em; }
+.reading { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); }
+.fig .tr { font-style: italic; }
+.fig .note { font-size: .88rem; color: var(--muted); }
+.binding { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .3rem 1.4rem; align-items: baseline; padding-top: .4rem; }
+.binding p { color: var(--muted); font-size: .92rem; }
+
+/* Mockups */
+.mocks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.mock { margin: 0; display: grid; gap: .45rem; align-content: start; min-width: 0; }
+.mock img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; border: 1px solid var(--line); background: #fff; }
+
+/* Arte por zona */
+.zones { display: grid; gap: 2.6rem; }
+.zone { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 1.8rem; align-items: start; padding-top: 2.2rem; border-top: 1px solid var(--line); }
+.zone:first-child { border-top: 0; padding-top: 0; }
+.plate { margin: 0; background: var(--surface); border: 1px solid var(--line); padding: .6rem; min-width: 0; }
+.art { width: 100%; height: auto; display: block; }
+.spec { display: grid; gap: 1rem; min-width: 0; }
+.spec header { display: grid; gap: .3rem; }
+.spec dl { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .5rem 1rem; font-size: .93rem; }
+.spec dt { font-family: var(--f-mono); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: .15rem; }
+.spec dd { margin: 0; }
+.spec .jp { font-size: 1.08em; letter-spacing: .06em; }
+.taping {
+  background: var(--twill); color: var(--stone); font-family: var(--f-kanji); font-size: .9rem;
+  letter-spacing: .18em; white-space: nowrap; overflow: hidden; padding: .5rem 0; border-radius: 2px;
+}
+
+/* SVG: clases de arte (colores físicos) y de anotación (siguen el tema) */
+.tw { fill: var(--twill); }
+.st { fill: var(--stone); }
+.wi { fill: var(--wine); }
+.stS { stroke: var(--stone); fill: none; }
+.wiS { stroke: var(--wine); fill: none; }
+.seam { stroke: var(--twill-dark); stroke-width: .6; fill: none; }
+.stitch { stroke: var(--twill-dark); stroke-width: .45; stroke-dasharray: 1.4 1; fill: none; }
+.stitch-g { stroke: var(--brim-grey-dark); stroke-width: .45; stroke-dasharray: 1.4 1; fill: none; }
+.eyelet { fill: var(--twill-dark); stroke: var(--twill-dark); stroke-width: .8; }
+.inside { fill: var(--inside); }
+.brass { fill: var(--brass); stroke: #6E5733; stroke-width: .5; }
+.dim { stroke: var(--muted); stroke-width: .35; fill: none; }
+.dimt { fill: var(--muted); font-family: var(--f-mono); font-size: 4.4px; }
+.gridrect { fill: url(#mm); }
+.gridline { stroke: var(--grid); stroke-width: .3; fill: none; }
+.refframe { fill: none; stroke: var(--stone); stroke-width: .4; stroke-dasharray: 1.6 1.2; opacity: .7; }
+.t-kanji { font-family: var(--f-kanji); }
+
+/* Construcción y paleta */
+.table-wrap { overflow-x: auto; border-top: 1px solid var(--ink); }
+table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .94rem; }
+th, td { text-align: left; padding: .7rem .9rem .7rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-mono); font-weight: 500; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); width: 26%; }
+.swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; }
+.sw { display: grid; gap: .45rem; min-width: 0; }
+.chip { aspect-ratio: 4 / 3; border: 1px solid var(--line); border-radius: 2px; }
+.sw b { font-weight: 600; font-size: .95rem; }
+.sw code { font-family: var(--f-mono); font-size: .8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sw span { font-size: .85rem; color: var(--muted); }
+
+/* Prompt y etiqueta */
+.prompt-box { display: grid; gap: .8rem; }
+.prompt-bar { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: space-between; }
+button {
+  font: 500 .88rem var(--f-body); color: var(--surface); background: var(--ink); border: 0; border-radius: 3px;
+  padding: .6rem 1.1rem; cursor: pointer;
+}
+button:hover { background: var(--accent); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+pre {
+  margin: 0; background: var(--surface); border: 1px solid var(--line); padding: 1.1rem 1.2rem; overflow-x: auto;
+  font-family: var(--f-mono); font-size: .8rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word; max-height: 26rem;
+}
+.hang { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 2rem; align-items: start; }
+.tagcard {
+  position: relative; background: var(--twill); color: var(--stone); padding: 2.6rem 1.6rem 1.8rem; border-radius: 4px 4px 14px 14px;
+  display: grid; gap: .9rem; min-width: 0;
+}
+.tagcard::before {
+  content: ""; position: absolute; top: .9rem; left: 50%; width: .8rem; height: .8rem; margin-left: -.4rem;
+  border-radius: 50%; background: var(--bg); box-shadow: inset 0 0 0 2px var(--twill-dark);
+}
+.tagcard .name { font-family: var(--f-display); font-size: 1.9rem; letter-spacing: .14em; text-align: center; }
+.tagcard .sub { font-family: var(--f-kanji); letter-spacing: .3em; text-align: center; font-size: 1.05rem; }
+.tagcard p { font-size: .9rem; line-height: 1.55; }
+.tagcard .care { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .06em; border-top: 1px solid rgba(214, 203, 176, .4); padding-top: .8rem; }
+.hang-notes { display: grid; gap: .8rem; color: var(--muted); max-width: 52ch; }
+footer { font-family: var(--f-mono); font-size: .76rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1.2rem; display: grid; gap: .3rem; }
+
+@media (max-width: 900px) {
+  .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fig:nth-child(3) { border-left: 0; padding-left: 0; }
+  .fig:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .mocks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .hero, .zone, .hang { grid-template-columns: minmax(0, 1fr); }
+  .hero figure { order: -1; }
+  .wrap { gap: 3.5rem; padding-block: 1.5rem 3rem; }
+}
+@media (max-width: 520px) {
+  .figures { grid-template-columns: minmax(0, 1fr); }
+  .fig, .fig:nth-child(3) { border-left: 0; padding-left: 0; padding-right: 0; }
+  .fig + .fig { border-top: 1px solid var(--line); }
+  .mocks { grid-template-columns: minmax(0, 1fr); }
+  .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .binding { grid-template-columns: minmax(0, 1fr); }
+  .spec dl { grid-template-columns: minmax(0, 1fr); gap: .15rem; }
+  .spec dd { margin-bottom: .45rem; }
+}
+</style>
+</head>
+<body>
+<!-- Símbolos compartidos: corona real y cuadrícula de 10 mm -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="mm" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10" class="gridline"/>
+    </pattern>
+    <symbol id="crown" viewBox="-50 -50 100 100">
+      <path d="M-30,6 C-31,-27 31,-27 30,6 Z" style="fill:var(--wine)"/>
+      <path d="M-19,-11 Q-16,-34 0,-36 Q16,-34 19,-11" style="fill:none;stroke:var(--stone);stroke-width:3.6"/>
+      <path d="M-19,-11 Q-16,-34 0,-36 Q16,-34 19,-11" style="fill:none;stroke:var(--twill-dark);stroke-width:1.3;stroke-dasharray:.1 3.1;stroke-linecap:round"/>
+      <path d="M0,-17 V-36" style="stroke:var(--stone);stroke-width:3.6"/>
+      <path d="M0,-18 V-35" style="stroke:var(--twill-dark);stroke-width:1.3;stroke-dasharray:.1 3.1;stroke-linecap:round"/>
+      <circle cy="-40.5" r="4.6" style="fill:var(--stone)"/>
+      <path d="M-4.6,-40.5 H4.6 M0,-45.1 V-40.5" style="stroke:var(--wine);stroke-width:1"/>
+      <path d="M0,-45 V-49.5 M-2.2,-47.4 H2.2" style="stroke:var(--stone);stroke-width:1.6"/>
+      <path d="M-38,10 L-38,-4 L-28,4 L-19,-11 L-10,4 L0,-17 L10,4 L19,-11 L28,4 L38,-4 L38,10 Z" style="fill:var(--stone)"/>
+      <path d="M-28,4 L-28,10 M-10,4 L-10,10 M10,4 L10,10 M28,4 L28,10" style="stroke:var(--wine);stroke-width:.8"/>
+      <g style="fill:var(--stone);stroke:var(--wine);stroke-width:.8">
+        <circle cx="-38" cy="-6.6" r="3.2"/><circle cx="-19" cy="-13.6" r="3.2"/><circle cx="0" cy="-19.8" r="3.4"/>
+        <circle cx="19" cy="-13.6" r="3.2"/><circle cx="38" cy="-6.6" r="3.2"/>
+      </g>
+      <rect x="-40" y="8" width="80" height="14" rx="2" style="fill:var(--stone)"/>
+      <path d="M-38,10.4 H38 M-38,19.6 H38" style="stroke:var(--wine);stroke-width:1.5;stroke-dasharray:.1 2.6;stroke-linecap:round"/>
+      <g style="fill:var(--wine)">
+        <ellipse cx="-26" cy="15" rx="3.2" ry="2.6"/>
+        <path d="M-13,12 L-10,15 L-13,18 L-16,15 Z"/>
+        <ellipse cx="0" cy="15" rx="4" ry="3"/>
+        <path d="M13,12 L16,15 L13,18 L10,15 Z"/>
+        <ellipse cx="26" cy="15" rx="3.2" ry="2.6"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-text">
+      <span class="eyebrow">Gorra A-frame · Ficha técnica v6 · 19 oct 2026</span>
+      <h1>Kratistos<span class="jp">最強の者へ</span></h1>
+      <p class="lead">Una gorra de uso diario con tres figuras que no aceptaron lo imposible. Alejandro va al frente y en el costado izquierdo, Musashi en el derecho y la corona de Napoleón en la espalda. Toda la letra va en japonés, en hilo piedra sobre sarga roja, con detalles tono sobre tono en vino.</p>
+      <ul class="facts">
+        <li>Estructura A-frame de copa alta, frente rígido sin costura</li>
+        <li>Sarga de algodón 100 %</li>
+        <li>8 zonas decoradas, ninguna pisa una costura</li>
+        <li>Toda la letra en japonés: kanji y katakana con trazo de pincel</li>
+        <li>Talla ajustable de 56 a 60 cm</li>
+      </ul>
+    </div>
+    <figure>
+      <img src="img/frente.jpg" alt="Gorra roja A-frame con 最強の者へ en arco, アレクサンドロス, マケドニア y una corona al frente; en el costado, un busto griego de Alejandro" width="673" height="674">
+      <figcaption>Frente y costado izquierdo · mockup generado con Google Flow</figcaption>
+    </figure>
+  </header>
+
+  <section id="concepto" aria-labelledby="h-concepto">
+    <div class="section-head">
+      <span class="eyebrow">Concepto</span>
+      <h2 id="h-concepto">Tres figuras, una frase</h2>
+      <p>Cada zona de la gorra corresponde a una figura. Toda la letra va en japonés, con el mismo trazo de pincel que los kanji de Musashi. Debajo de la visera está la frase que las une.</p>
+    </div>
+    <div class="figures">
+      <article class="fig">
+        <span class="tag">Frente</span>
+        <h3>Alejandro Magno</h3>
+        <p class="phrase" lang="ja">最強の者へ</p>
+        <p class="reading">saikyō no mono e</p>
+        <p class="tr">«Al más fuerte»</p>
+        <p class="note">Según Arriano, fue su respuesta en el lecho de muerte cuando le preguntaron a quién dejaba el imperio. Debajo dice アレクサンドロス (Alexandros) y マケドニア (Macedonia).</p>
+      </article>
+      <article class="fig">
+        <span class="tag">Costado izquierdo</span>
+        <h3>Grecia · el busto</h3>
+        <p class="phrase" lang="ja">大王</p>
+        <p class="reading">daiō</p>
+        <p class="tr">«El Grande»</p>
+        <p class="note">Es un busto griego de mármol de Alejandro, con el pelo que sube desde la frente como en sus retratos clásicos. El sello 大王 hace pareja con el 武蔵 del otro lado.</p>
+      </article>
+      <article class="fig">
+        <span class="tag">Costado derecho</span>
+        <h3>Miyamoto Musashi</h3>
+        <p class="phrase" lang="ja">独行道</p>
+        <p class="reading">dokkōdō</p>
+        <p class="tr">«El camino de andar solo»</p>
+        <p class="note">Son los preceptos que escribió en 1645, días antes de morir. El sello dice 武蔵, Musashi. Van con dos katanas, porque peleaba con dos espadas.</p>
+      </article>
+      <article class="fig">
+        <span class="tag">Espalda</span>
+        <h3>La corona</h3>
+        <p class="phrase long" lang="ja">我が辞書に不可能はない</p>
+        <p class="reading">waga jisho ni fukanō wa nai</p>
+        <p class="tr">«En mi diccionario no existe imposible»</p>
+        <p class="note">Así se conoce en Japón la frase de Napoleón. Va sobre una corona real grande, con perlas y arcos, entre dos laureles.</p>
+      </article>
+    </div>
+    <div class="binding">
+      <p class="phrase" lang="ja">為せば成る</p>
+      <p>«Si lo intentas, se logra». La frase es de Uesugi Yōzan, un señor feudal del siglo XVIII. Va estampada bajo la visera: solo la ve quien lleva la gorra.</p>
+    </div>
+  </section>
+
+  <section id="mockups" aria-labelledby="h-mockups">
+    <div class="section-head">
+      <span class="eyebrow">Mockups</span>
+      <h2 id="h-mockups">Cómo se ve armada</h2>
+      <p>Las seis vistas son de una misma sesión de Google Flow (Nano Banana 2.1), así que es la misma gorra en cada foto. Revisé cada carácter japonés en todas.</p>
+    </div>
+    <div class="mocks">
+      <figure class="mock">
+        <img src="img/frente.jpg" alt="Vista de tres cuartos: frente con 最強の者へ, アレクサンドロス, マケドニア y una corona; costado con el busto griego" width="673" height="674">
+        <figcaption>Frente · Alejandro</figcaption>
+      </figure>
+      <figure class="mock">
+        <img src="img/busto.jpg" alt="Costado izquierdo de perfil: busto griego de Alejandro con dos laureles y el sello 大王" width="673" height="674">
+        <figcaption>Costado izquierdo · el busto</figcaption>
+      </figure>
+      <figure class="mock">
+        <img src="img/musashi.jpg" alt="Costado derecho de perfil: ensō en vino, dos katanas cruzadas, 独行道 en vertical y el sello 武蔵" width="673" height="674">
+        <figcaption>Costado derecho · Musashi</figcaption>
+      </figure>
+      <figure class="mock">
+        <img src="img/espalda.jpg" alt="Espalda: corona real grande con perlas entre dos laureles, 我が辞書に不可能はない en arco y la hebilla de latón con una corona" width="657" height="596">
+        <figcaption>Espalda · la corona</figcaption>
+      </figure>
+      <figure class="mock">
+        <img src="img/bajo-visera.jpg" alt="Gorra boca arriba: bajo visera gris con corona de laurel y 為せば成る; cinta interior con アレクサンドロス・武蔵・ナポレオン" width="673" height="674">
+        <figcaption>Bajo visera y cinta interior</figcaption>
+      </figure>
+      <figure class="mock">
+        <img src="img/lifestyle.jpg" alt="Un joven con la gorra puesta en una calle de piedra, con luz de tarde" width="497" height="594" style="object-position:50% 25%">
+        <figcaption>Puesta · uso diario</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="arte" aria-labelledby="h-arte">
+    <div class="section-head">
+      <span class="eyebrow">Arte por zona</span>
+      <h2 id="h-arte">Planos para el taller de bordado</h2>
+      <p>Cada plano muestra el panel extendido, antes de armar, sobre una cuadrícula de 10 mm. Las cotas están en milímetros. El arte es la guía para el digitalizador; el archivo de puntadas se arma a partir de él.</p>
+    </div>
+
+    <div class="zones">
+      <article class="zone">
+        <figure class="plate">
+          <svg class="art" id="svgFront" viewBox="0 0 260 165" role="img" aria-label="Panel frontal con 最強の者へ en arco, アレクサンドロス, マケドニア y una corona, con cotas de 105 por 62 milímetros">
+            <rect class="gridrect" width="260" height="165"/>
+            <path class="tw" d="M20,145 C24,70 70,15 130,15 C190,15 236,70 240,145 Q130,151 20,145 Z"/>
+            <path class="seam" d="M20,145 Q130,151 240,145"/>
+            <path id="arcF" d="M80,98 Q130,70 180,98" fill="none"/>
+            <text class="t-kanji st" font-size="18" letter-spacing="1.2"><textPath href="#arcF" startOffset="50%" text-anchor="middle">最強の者へ</textPath></text>
+            <text class="t-kanji st" x="130" y="102" font-size="8" letter-spacing=".6" text-anchor="middle">アレクサンドロス</text>
+            <text class="t-kanji st" x="130" y="117" font-size="12" letter-spacing="1" text-anchor="middle">マケドニア</text>
+            <use href="#crown" x="121" y="118" width="18" height="18"/>
+            <g id="dimFront"></g>
+          </svg>
+        </figure>
+        <div class="spec">
+          <header><span class="tag">Zona 1 · Frente</span><h3>Alejandro Magno</h3></header>
+          <dl>
+            <dt>Medida</dt><dd>105 × 62 mm, centrado en el panel</dd>
+            <dt>Ubicación</dt><dd>La base de la corona va a 10 mm de la costura de la visera</dd>
+            <dt>Técnica</dt><dd>Kanji y kana en satén con trazo de pincel; en los trazos gruesos, relleno tatami. La corona en bordado plano, con las perlas en satén circular de 2 mm.</dd>
+            <dt>Hilo</dt><dd>Piedra, mate; terciopelo de la corona en vino</dd>
+            <dt>Ojo</dt><dd>Revisar cada carácter en la prueba: <span class="jp" lang="ja">最 強 の 者 へ · ア レ ク サ ン ド ロ ス · マ ケ ド ニ ア</span>. La línea en katakana mide 5 mm de alto: usar hilo fino (60 wt).</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="zone">
+        <figure class="plate">
+          <svg class="art" id="svgBust" viewBox="0 0 300 172" role="img" aria-label="Panel lateral izquierdo con el busto griego de Alejandro entre dos laureles y el sello 大王, con cotas de 92 por 80 milímetros">
+            <defs>
+              <clipPath id="clipSideL"><path d="M30,150 Q150,158 270,150 C262,95 225,40 150,22 C95,30 45,75 30,150 Z"/></clipPath>
+            </defs>
+            <rect class="gridrect" width="300" height="172"/>
+            <path class="tw" d="M30,150 Q150,158 270,150 C262,95 225,40 150,22 C95,30 45,75 30,150 Z"/>
+            <path class="seam" d="M30,150 Q150,158 270,150"/>
+            <circle class="eyelet" cx="196" cy="56" r="2.4"/>
+            <image href="img/arte-busto.jpg" x="104" y="40" width="92" height="101.8" preserveAspectRatio="xMidYMid meet" clip-path="url(#clipSideL)"/>
+            <rect class="refframe" x="104" y="40" width="92" height="101.8"/>
+            <g id="dimBust"></g>
+          </svg>
+        </figure>
+        <div class="spec">
+          <header><span class="tag">Zona 2 · Costado izquierdo</span><h3>Grecia · el busto</h3></header>
+          <dl>
+            <dt>Medida</dt><dd>El conjunto mide 92 × 80 mm; el busto solo, 55 × 62 mm</dd>
+            <dt>Ubicación</dt><dd>Centrado en el panel; el sello va a 16 mm de la costura inferior</dd>
+            <dt>Técnica</dt><dd>Estilo grabado: el contorno y el rayado del mármol en pespunte fino piedra, y las sombras en vino con tatami de baja densidad. Los laureles en plano piedra. El sello 大王 relleno en vino, con los kanji en piedra.</dd>
+            <dt>Arte</dt><dd>El recuadro punteado es la referencia sacada del mockup. Hay que vectorizarla a línea antes de digitalizar.</dd>
+            <dt>Ojo</dt><dd>El sello dice <span class="jp" lang="ja">大王</span> («el Grande»), en horizontal</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="zone">
+        <figure class="plate">
+          <svg class="art" id="svgMusashi" viewBox="0 0 300 172" role="img" aria-label="Panel lateral derecho con un ensō, dos katanas cruzadas, los kanji 独行道 en vertical y el sello 武蔵, con cotas de 105 por 66 milímetros">
+            <rect class="gridrect" width="300" height="172"/>
+            <path class="tw" transform="translate(300 0) scale(-1 1)" d="M30,150 Q150,158 270,150 C262,95 225,40 150,22 C95,30 45,75 30,150 Z"/>
+            <path class="seam" d="M30,150 Q150,158 270,150"/>
+            <circle class="eyelet" cx="140" cy="44" r="2.4"/>
+            <g id="musashi"></g>
+            <text class="t-kanji st" x="200" y="73" font-size="14" text-anchor="middle">独</text>
+            <text class="t-kanji st" x="200" y="90" font-size="14" text-anchor="middle">行</text>
+            <text class="t-kanji st" x="200" y="107" font-size="14" text-anchor="middle">道</text>
+            <rect class="wi" x="193.5" y="113" width="13" height="13" rx="1"/>
+            <text class="t-kanji tw" x="200" y="119" font-size="5.4" text-anchor="middle">武</text>
+            <text class="t-kanji tw" x="200" y="124.8" font-size="5.4" text-anchor="middle">蔵</text>
+            <g id="dimMusashi"></g>
+          </svg>
+        </figure>
+        <div class="spec">
+          <header><span class="tag">Zona 3 · Costado derecho</span><h3>Miyamoto Musashi</h3></header>
+          <dl>
+            <dt>Medida</dt><dd>105 × 66 mm, el mismo peso visual que el busto</dd>
+            <dt>Ubicación</dt><dd>Centrado en el panel; el sello va a 24 mm de la costura inferior</dd>
+            <dt>Técnica</dt><dd>El ensō en satén ancho vino, con trazo de pincel. Las katanas en contorno piedra, con tsuba y mango encordado. Los kanji en satén piedra. El sello relleno en vino, con 武蔵 en reserva (se ve la tela).</dd>
+            <dt>Hilo</dt><dd>Piedra + vino</dd>
+            <dt>Ojo</dt><dd>Los kanji se leen de arriba abajo: <span class="jp" lang="ja">独, 行, 道</span>. Si el taller no tiene la fuente, mandar este trazo como vector.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="zone">
+        <figure class="plate">
+          <svg class="art" id="svgBack" viewBox="0 0 260 168" role="img" aria-label="Paneles traseros con una corona real grande entre dos laureles, la frase 我が辞書に不可能はない en arco y la correa con hebilla de latón grabada con una corona">
+            <rect class="gridrect" width="260" height="168"/>
+            <path class="tw" d="M20,150 C26,80 70,25 130,20 C190,25 234,80 240,150 Z"/>
+            <path class="seam" d="M130,20 V108"/>
+            <circle class="eyelet" cx="68" cy="74" r="2.4"/>
+            <circle class="eyelet" cx="192" cy="74" r="2.4"/>
+            <path class="inside" d="M95,150 V128 Q95,108 130,108 Q165,108 165,128 V150 Z"/>
+            <path id="arcB" d="M76,58 A80,80 0 0 1 184,58" fill="none"/>
+            <text class="t-kanji st" font-size="8.6" letter-spacing=".9"><textPath href="#arcB" startOffset="50%" text-anchor="middle">我が辞書に不可能はない</textPath></text>
+            <g id="backLaurel"></g>
+            <use href="#crown" x="88" y="39" width="84" height="84"/>
+            <rect class="tw" x="86" y="140" width="88" height="9" rx="1.5" style="stroke:var(--twill-dark);stroke-width:.6"/>
+            <rect class="brass" x="146" y="137.5" width="13" height="14" rx="1"/>
+            <use href="#crown" x="147.5" y="139" width="10" height="10"/>
+            <g id="dimBack"></g>
+          </svg>
+        </figure>
+        <div class="spec">
+          <header><span class="tag">Zona 4 · Espalda</span><h3>La corona</h3></header>
+          <dl>
+            <dt>Medida</dt><dd>La corona mide 60 mm de ancho; la frase va en un arco de 108 mm y cada laurel mide 46 mm</dd>
+            <dt>Ubicación</dt><dd>Centrado sobre la costura trasera; la base de la corona va a 8 mm de la abertura</dd>
+            <dt>Técnica</dt><dd>La corona en bordado plano piedra: banda con dos filas de perlas, cinco joyas en vino, puntas con perlas en satén circular, arcos con perlas y orbe. El terciopelo interior en tatami vino. La frase en satén con trazo de pincel.</dd>
+            <dt>Letra</dt><dd>6 mm de alto, 11 caracteres: <span class="jp" lang="ja">我 が 辞 書 に 不 可 能 は な い</span></dd>
+            <dt>Cierre</dt><dd>Correa de la misma sarga, con hebilla deslizante de latón envejecido grabada con una corona</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="zone">
+        <figure class="plate">
+          <svg class="art" id="svgBrim" viewBox="0 0 260 130" role="img" aria-label="Visera vista desde arriba con ocho pespuntes y una greca griega en vino a lo largo del borde">
+            <rect class="gridrect" width="260" height="130"/>
+            <path class="tw" d="M15,40 Q130,190 245,40 L215,25 Q130,80 45,25 Z"/>
+            <g id="brimTop"></g>
+            <g id="dimBrim"></g>
+          </svg>
+        </figure>
+        <div class="spec">
+          <header><span class="tag">Zona 5 · Visera</span><h3>Greca griega</h3></header>
+          <dl>
+            <dt>Medida</dt><dd>Banda de 4 mm a lo largo de todo el borde exterior</dd>
+            <dt>Ubicación</dt><dd>A 2 mm del canto, por fuera de los 8 pespuntes</dd>
+            <dt>Técnica</dt><dd>Pespunte triple (bean stitch) en vino, tono sobre tono. Se nota de cerca, no de lejos.</dd>
+            <dt>Pespuntes</dt><dd>8 filas tono sobre tono</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="zone">
+        <figure class="plate">
+          <svg class="art" id="svgUnder" viewBox="0 0 260 130" role="img" aria-label="Bajo visera gris con corona de laurel y 為せば成る">
+            <rect class="gridrect" width="260" height="130"/>
+            <path d="M15,40 Q130,190 245,40 L215,25 Q130,80 45,25 Z" style="fill:var(--brim-grey)"/>
+            <g id="underBrim"></g>
+            <text class="t-kanji st" x="130" y="86" font-size="13" letter-spacing="1.2" text-anchor="middle">為せば成る</text>
+            <g id="dimUnder"></g>
+          </svg>
+        </figure>
+        <div class="spec">
+          <header><span class="tag">Zona 6 · Bajo visera</span><h3>La frase que las une</h3></header>
+          <dl>
+            <dt>Medida</dt><dd>70 × 45 mm, centrado</dd>
+            <dt>Técnica</dt><dd>Serigrafía a una tinta sobre la tela gris, antes de armar la visera</dd>
+            <dt>Tinta</dt><dd>Piedra. En el mockup salió en gris oscuro, que también funciona y es más discreto; elegir con la prueba de tela.</dd>
+            <dt>Ojo</dt><dd><span class="jp" lang="ja">為 せ ば 成 る</span>, cuatro caracteres</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="zone">
+        <div class="plate" style="display:grid;gap:.6rem;padding:1rem">
+          <div class="taping" lang="ja" aria-label="Cinta interior">アレクサンドロス · 武蔵 · ナポレオン · アレクサンドロス · 武蔵 · ナポレオン · アレクサンドロス · 武蔵 · ナポレオン</div>
+          <span class="eyebrow">Cinta de 15 mm · repetición cada 80 mm</span>
+        </div>
+        <div class="spec">
+          <header><span class="tag">Zonas 7 y 8 · Interior</span><h3>Cinta y correa</h3></header>
+          <dl>
+            <dt>Cinta</dt><dd>Cubre las costuras internas. Va estampada en piedra sobre rojo con los tres nombres en bucle: Alejandro, Musashi y Napoleón.</dd>
+            <dt>Correa</dt><dd>Ver zona 4: sarga roja y hebilla de latón grabada con una corona</dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="construccion" aria-labelledby="h-construccion">
+    <div class="section-head">
+      <span class="eyebrow">Construcción</span>
+      <h2 id="h-construccion">Materiales y armado</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr><th scope="row">Modelo</th><td>A-frame de copa alta, 5 paneles: frente alto y rígido con entretela (buckram), sin costura central, que sube recto desde la visera. Dos paneles laterales y dos traseros.</td></tr>
+          <tr><th scope="row">Tela</th><td>Sarga de algodón 100 %, rojo cardenal</td></tr>
+          <tr><th scope="row">Visera</th><td>Precurvada, con 8 pespuntes tono sobre tono y la greca en vino. Bajo visera en sarga gris.</td></tr>
+          <tr><th scope="row">Ojales</th><td>4, bordados tono sobre tono (2 laterales y 2 traseros)</td></tr>
+          <tr><th scope="row">Botón</th><td>Forrado en la misma sarga roja</td></tr>
+          <tr><th scope="row">Banda interior</th><td>Algodón, para el sudor</td></tr>
+          <tr><th scope="row">Cinta interior</th><td>15 mm, estampada (zona 7)</td></tr>
+          <tr><th scope="row">Cierre</th><td>Correa de sarga roja con hebilla deslizante de latón envejecido, grabada con una corona</td></tr>
+          <tr><th scope="row">Talla</th><td>Ajustable, de 56 a 60 cm de contorno</td></tr>
+          <tr><th scope="row">Orden de armado</th><td>Bordar y estampar los paneles y el bajo visera planos. Después armar la corona, coser la visera y poner la cinta y la banda.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="paleta" aria-labelledby="h-paleta">
+    <div class="section-head">
+      <span class="eyebrow">Paleta</span>
+      <h2 id="h-paleta">Cinco colores, nada más</h2>
+      <p>Los códigos son de pantalla. Para producir, pedir al taller su carta de hilos y elegir el tono más cercano con la tela delante.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:var(--twill)"></div><b>Rojo cardenal</b><code>#9B1B26</code><span>Tela</span></div>
+      <div class="sw"><div class="chip" style="background:var(--stone)"></div><b>Piedra</b><code>#D6CBB0</code><span>Hilo principal y tintas</span></div>
+      <div class="sw"><div class="chip" style="background:var(--wine)"></div><b>Vino</b><code>#6E0F18</code><span>Sombras, terciopelo de la corona y sellos</span></div>
+      <div class="sw"><div class="chip" style="background:var(--brim-grey)"></div><b>Gris</b><code>#8A8A85</code><span>Bajo visera</span></div>
+      <div class="sw"><div class="chip" style="background:var(--brass)"></div><b>Latón envejecido</b><code>#9A7B4F</code><span>Hebilla</span></div>
+    </div>
+  </section>
+
+  <section id="prompt" aria-labelledby="h-prompt">
+    <div class="section-head">
+      <span class="eyebrow">Prompt</span>
+      <h2 id="h-prompt">Prompt maestro para generar la gorra</h2>
+      <p>Funciona en Google Flow y en otros generadores de imágenes. Para ver otra vista, agrega al final, por ejemplo, «now photograph it from the back». Para que salga la misma forma, adjunta como referencia la foto del frente.</p>
+    </div>
+    <div class="prompt-box">
+      <div class="prompt-bar">
+        <span class="eyebrow">Inglés · diseño completo v6</span>
+        <button type="button" id="copyPrompt">Copiar prompt</button>
+      </div>
+      <pre id="promptText">A structured A-frame high-crown 5-panel cap in deep cardinal red (#9B1B26) cotton twill: tall, firm, seamless front panel (stiff buckram) rising steeply from a pre-curved brim with 8 rows of tonal stitching, embroidered eyelets, covered top button, grey underside of the brim.
+Palette: matte stone thread (#D6CBB0) as the main color, dark wine thread (#6E0F18) for shading and subtle patterns; no metallic, no other colors. All lettering in Japanese, bold brush-calligraphy embroidery.
+FRONT: big arched line 最強の者へ in stone; under it a smaller katakana line アレクサンドロス; under it a straight line マケドニア; under that a small detailed royal crown.
+LEFT SIDE PANEL: a large, detailed classical Greek marble bust of Alexander the Great in three-quarter view, idealized young face, thick wavy hair rising from the forehead (anastole), engraving-style embroidery with stone outlines and wine shading; below it two small laurel sprigs and a small square wine seal with 大王.
+RIGHT SIDE PANEL: a large brush-stroke enso circle in wine thread, two crossed katanas in detailed stone line-art with round tsuba guards and wrapped handles, the kanji 独行道 written vertically in stone brush calligraphy, and a small square seal with 武蔵.
+BACK: a large, well structured royal crown about 6 cm wide in stone with wine shading (jeweled headband with a row of pearls, five points topped with pearls, crossing arches with pearl beading, wine velvet cap inside, small orb on top), flanked by two laurel branches; above it the arched line 我が辞書に不可能はない. Red twill strap with an antique-brass slide buckle engraved with a small crown.
+TOP OF THE BRIM: thin Greek key (meander) border along the edge in wine thread.
+UNDER THE BRIM: grey fabric printed with a laurel wreath and, inside it, 為せば成る. Inner taping printed in stone: アレクサンドロス · 武蔵 · ナポレオン repeated.
+Hyper-realistic e-commerce catalog photo, 1:1, white seamless background, soft diffused studio light, natural soft shadow. Write every Japanese character exactly as given, not mirrored. No Greek, Latin or French letters, no stickers, no watermark.</pre>
+    </div>
+  </section>
+
+  <section id="etiqueta" aria-labelledby="h-etiqueta">
+    <div class="section-head">
+      <span class="eyebrow">Etiqueta colgante</span>
+      <h2 id="h-etiqueta">Texto para la etiqueta</h2>
+    </div>
+    <div class="hang">
+      <div class="tagcard">
+        <div class="name">KRATISTOS</div>
+        <div class="sub" lang="ja">最強の者へ</div>
+        <p>Tres figuras que no aceptaron un no por respuesta. Alejandro dejó su imperio al más fuerte. Musashi escribió el camino de andar solo. Napoleón dijo que en su diccionario no existía la palabra imposible.</p>
+        <p>Debajo de la visera va lo que las une: <span class="jp" lang="ja">為せば成る</span>, si lo intentas, se logra.</p>
+        <p class="care">Sarga de algodón 100 % · Bordada · Talla 56–60 cm<br>Lavar a mano en frío · No usar secadora</p>
+      </div>
+      <div class="hang-notes">
+        <p>La etiqueta repite la paleta de la gorra: fondo rojo cardenal e impresión en piedra.</p>
+        <p>El texto sigue el recorrido de la gorra: frente y costados, espalda y, al final, lo que solo ve quien la lleva puesta.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Kratistos · ficha técnica v6 · 19 de octubre de 2026</span>
+    <span>Mockups generados con Google Flow (Nano Banana 2.1). Arte vectorial de referencia para el digitalizador.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const rad = d => d * Math.PI / 180;
+  function mk(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  const $ = id => document.getElementById(id);
+
+  // Cota: línea con topes y medida en mm. side: -1 arriba/izquierda, 1 abajo/derecha
+  function dim(g, x1, y1, x2, y2, label, side) {
+    const horiz = Math.abs(x2 - x1) > Math.abs(y2 - y1);
+    const t = 2;
+    mk("line", { x1, y1, x2, y2, class: "dim" }, g);
+    if (horiz) {
+      mk("line", { x1, y1: y1 - t, x2: x1, y2: y1 + t, class: "dim" }, g);
+      mk("line", { x1: x2, y1: y2 - t, x2, y2: y2 + t, class: "dim" }, g);
+      const tx = mk("text", { x: (x1 + x2) / 2, y: y1 + (side > 0 ? 6.2 : -2.2), class: "dimt", "text-anchor": "middle" }, g);
+      tx.textContent = label;
+    } else {
+      mk("line", { x1: x1 - t, y1, x2: x1 + t, y2: y1, class: "dim" }, g);
+      mk("line", { x1: x2 - t, y1: y2, x2: x2 + t, y2, class: "dim" }, g);
+      const cx = x1 + (side > 0 ? 6 : -2.2), cy = (y1 + y2) / 2;
+      const tx = mk("text", { x: cx, y: cy, class: "dimt", "text-anchor": "middle", transform: `rotate(-90 ${cx} ${cy})` }, g);
+      tx.textContent = label;
+    }
+  }
+  function note(g, x, y, label, anchor) {
+    const tx = mk("text", { x, y, class: "dimt", "text-anchor": anchor || "start" }, g);
+    tx.textContent = label;
+  }
+
+  // Ramita de laurel: hojas alternadas a lo largo de una curva
+  function laurel(g, d, n, size, leafClass, stemClass) {
+    const p = mk("path", { d, class: stemClass || "stS", "stroke-width": size * 0.11, "stroke-linecap": "round" }, g);
+    const L = p.getTotalLength();
+    const leaf = `M0,0 Q${size * 0.5},${-size * 0.34} ${size},0 Q${size * 0.5},${size * 0.34} 0,0 Z`;
+    for (let i = 1; i <= n; i++) {
+      const s = (i / (n + 0.6)) * L;
+      const a = p.getPointAtLength(s), b = p.getPointAtLength(Math.min(L, s + 0.6));
+      const ang = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+      for (const side of [-1, 1]) {
+        mk("path", { d: leaf, class: leafClass, transform: `translate(${a.x},${a.y}) rotate(${ang + side * 40})` }, g);
+      }
+    }
+    const end = p.getPointAtLength(L), pre = p.getPointAtLength(L - 0.6);
+    const ang = Math.atan2(end.y - pre.y, end.x - pre.x) * 180 / Math.PI;
+    mk("path", { d: leaf, class: leafClass, transform: `translate(${end.x},${end.y}) rotate(${ang})` }, g);
+  }
+
+  // ---- Zona 1: frente
+  const gF = $("dimFront");
+  dim(gF, 77.5, 62, 182.5, 62, "105 mm", -1);
+  dim(gF, 196, 72, 196, 134, "62 mm", 1);
+  dim(gF, 150, 134, 150, 145.5, "10", 1);
+  note(gF, 24, 160, "costura de la visera ↑", "start");
+
+  // ---- Zona 2: busto (arte de referencia)
+  const gB = $("dimBust");
+  dim(gB, 104, 160, 196, 160, "92 mm", 1);
+  dim(gB, 214, 50, 214, 130, "80 mm", 1);
+  dim(gB, 236, 134, 236, 151.5, "16", 1);
+  note(gB, 34, 166, "← frente", "start");
+  note(gB, 150, 36, "referencia del mockup · vectorizar", "middle");
+
+  // ---- Zona 3: Musashi
+  (function musashi() {
+    const g = $("musashi");
+    const cx = 138, cy = 94, r = 28;
+    const arc = (a0, a1, w) => {
+      const p0 = [cx + r * Math.cos(rad(a0)), cy + r * Math.sin(rad(a0))];
+      const p1 = [cx + r * Math.cos(rad(a1)), cy + r * Math.sin(rad(a1))];
+      const large = (a1 - a0) % 360 > 180 ? 1 : 0;
+      mk("path", { d: `M${p0[0]},${p0[1]} A${r},${r} 0 ${large} 1 ${p1[0]},${p1[1]}`, class: "wiS", "stroke-width": w, "stroke-linecap": "round" }, g);
+    };
+    arc(-70, 170, 6.8);
+    arc(170, 240, 4.6);
+    arc(240, 268, 2.4);
+    function katana(hx, hy, tx, ty, bend) {
+      const mx = (hx + tx) / 2, my = (hy + ty) / 2;
+      const nx = -(ty - hy), ny = tx - hx, nl = Math.hypot(nx, ny);
+      const c = [mx + nx / nl * bend, my + ny / nl * bend];
+      const P = t => [
+        (1 - t) * (1 - t) * hx + 2 * t * (1 - t) * c[0] + t * t * tx,
+        (1 - t) * (1 - t) * hy + 2 * t * (1 - t) * c[1] + t * t * ty
+      ];
+      const seg = (t0, t1) => {
+        const pts = [];
+        for (let i = 0; i <= 24; i++) pts.push(P(t0 + (t1 - t0) * i / 24).join(","));
+        return "M" + pts.join(" L");
+      };
+      mk("path", { d: seg(0.29, 1), class: "stS", "stroke-width": 2.9, "stroke-linecap": "round" }, g);
+      mk("path", { d: seg(0.31, 0.97), style: "fill:none;stroke:var(--twill);stroke-width:1.1;stroke-linecap:round" }, g);
+      mk("path", { d: seg(0.02, 0.25), class: "stS", "stroke-width": 4.4 }, g);
+      mk("path", { d: seg(0.02, 0.25), class: "wiS", "stroke-width": 4.4, "stroke-dasharray": "1.5 1.5" }, g);
+      const k = P(0.01);
+      mk("circle", { cx: k[0], cy: k[1], r: 2.4, class: "st" }, g);
+      const ts = P(0.27);
+      mk("circle", { cx: ts[0], cy: ts[1], r: 4.2, class: "tw", style: "stroke:var(--stone);stroke-width:1.3" }, g);
+    }
+    katana(106, 126, 172, 60, 5);
+    katana(170, 126, 104, 60, -5);
+    const d3 = $("dimMusashi");
+    dim(d3, 102, 164, 207, 164, "105 mm", 1);
+    dim(d3, 222, 60, 222, 126, "66 mm", 1);
+    note(d3, 266, 166, "frente →", "end");
+  })();
+
+  // ---- Zona 4: espalda
+  (function back() {
+    const g = $("backLaurel");
+    laurel(g, "M100,100 Q80,84 88,58", 6, 6, "st");
+    laurel(g, "M160,100 Q180,84 172,58", 6, 6, "st");
+    const d4 = $("dimBack");
+    dim(d4, 76, 13, 184, 13, "arco de 108 mm", -1);
+    dim(d4, 100, 161, 160, 161, "60 mm", 1);
+  })();
+
+  // ---- Zonas 5 y 6: visera (curvas interpoladas entre canto y costura)
+  const outer = [[15, 40], [130, 190], [245, 40]];
+  const inner = [[45, 25], [130, 80], [215, 25]];
+  const brimCurve = f => {
+    const p = outer.map((o, i) => [o[0] + (inner[i][0] - o[0]) * f, o[1] + (inner[i][1] - o[1]) * f]);
+    return `M${p[0]} Q${p[1]} ${p[2]}`;
+  };
+  (function brimTop() {
+    const g = $("brimTop");
+    for (let k = 0; k < 8; k++) mk("path", { d: brimCurve(0.16 + k * 0.085), class: "stitch" }, g);
+    mk("path", { d: brimCurve(0.018), class: "wiS", "stroke-width": .55 }, g);
+    const guide = mk("path", { d: brimCurve(0.03), fill: "none" }, g);
+    const L = guide.getTotalLength(), unit = 5.4, n = Math.floor(L / unit);
+    const off = (L - n * unit) / 2;
+    for (let i = 0; i < n; i++) {
+      const a = guide.getPointAtLength(off + i * unit), b = guide.getPointAtLength(off + i * unit + unit);
+      const ang = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+      mk("path", {
+        d: "M0.4,-0.2 V-4.4 H5.4 V-1.6 H2.4 V-3",
+        class: "wiS", "stroke-width": .62, "stroke-linejoin": "miter",
+        transform: `translate(${a.x},${a.y}) rotate(${ang}) scale(${unit / 6})`
+      }, g);
+    }
+    const d5 = $("dimBrim");
+    note(d5, 130, 12, "costura a la corona", "middle");
+    note(d5, 130, 126, "canto: greca a 2 mm, banda de 4 mm", "middle");
+  })();
+  (function under() {
+    const g = $("underBrim");
+    for (let k = 0; k < 8; k++) mk("path", { d: brimCurve(0.16 + k * 0.085), class: "stitch-g" }, g);
+    laurel(g, "M117,104 Q93,97 96,63", 7, 5.2, "st", "stS");
+    laurel(g, "M143,104 Q167,97 164,63", 7, 5.2, "st", "stS");
+    const d6 = $("dimUnder");
+    dim(d6, 92, 14, 168, 14, "70 mm", -1);
+    dim(d6, 236, 60, 236, 106, "45 mm", 1);
+  })();
+
+  // Copiar el prompt
+  const btn = $("copyPrompt"), pre = $("promptText");
+  btn.addEventListener("click", () => {
+    const done = () => { btn.textContent = "Copiado"; setTimeout(() => { btn.textContent = "Copiar prompt"; }, 1800); };
+    const fallback = () => {
+      const range = document.createRange();
+      range.selectNodeContents(pre);
+      const sel = window.getSelection();
+      sel.removeAllRanges(); sel.addRange(range);
+      btn.textContent = "Texto seleccionado: copia con Ctrl+C";
+    };
+    try {
+      navigator.clipboard.writeText(pre.textContent).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
